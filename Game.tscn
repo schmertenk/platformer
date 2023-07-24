@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfvnqs7uplx7m"]
+
+[ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="1_r2aue"]
+[ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="2_yuqv5"]
+[ext_resource type="PackedScene" uid="uid://bgxroynjropfx" path="res://Scenes/Environment/MovingPlatforms/MovingPlatform.tscn" id="3_rebl1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hg30"]
+size = Vector2(1189, 20)
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_r2aue")]
+position = Vector2(341, 116)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(570, 612)
+shape = SubResource("RectangleShape2D_0hg30")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(570, 611.5)
+scale = Vector2(9.26563, 0.148437)
+texture = ExtResource("2_yuqv5")
+
+[node name="MovingPlatform" parent="." instance=ExtResource("3_rebl1")]
+position = Vector2(753, 543)
