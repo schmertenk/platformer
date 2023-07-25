@@ -5,6 +5,7 @@ class_name Player
 enum FLY_STATE {
 	CAN_FLY,
 	IN_FLIGHT,
+	FLIGHT_ABORTED,
 	CANT_FLY
 }
 
@@ -20,8 +21,9 @@ func _physics_process(delta):
 	move()
 	handle_animation()
 	
-	if fly_state == FLY_STATE.CANT_FLY and is_on_floor():
+	if fly_state != FLY_STATE.CAN_FLY and is_on_floor():
 		fly_state = FLY_STATE.CAN_FLY
+		$FlyTimer.paused = false
 	
 func get_input():
 	move_direction = Vector2.ZERO
@@ -31,19 +33,25 @@ func get_input():
 	if Input.is_action_pressed("left"):
 		move_direction += Vector2.LEFT
 	
-
 	if Input.is_action_pressed("jump"):
 		if velocity.y > 0 and fly_state != FLY_STATE.CANT_FLY:
 			if fly_state == FLY_STATE.CAN_FLY:
 				fly_state = FLY_STATE.IN_FLIGHT
 				$FlyTimer.start()
+			if fly_state == FLY_STATE.FLIGHT_ABORTED:
+				fly_state = FLY_STATE.IN_FLIGHT
+				$FlyTimer.paused = false
 			gravity_scale = 0
 			velocity.y = 0
 
 	if Input.is_action_just_released("jump"):
 		if fly_state == FLY_STATE.IN_FLIGHT:
 			gravity_scale = 3.0
-			fly_state = FLY_STATE.CANT_FLY
+			if $FlyTimer.time_left:
+				$FlyTimer.paused = true
+				fly_state = FLY_STATE.FLIGHT_ABORTED
+			else:
+				fly_state = FLY_STATE.CANT_FLY
 
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
@@ -73,8 +81,14 @@ func jump():
 
 
 func handle_animation():
+	$Sprite2D.flip_h = velocity.x < 0
 	if abs(velocity.x) > 50 and is_on_floor():
 		$Sprite2D.rotate(sign(velocity.x) * (PI / 20))
+	
+	if fly_state == FLY_STATE.IN_FLIGHT:
+		$AnimationPlayer.play("fly")
+	else:
+		$AnimationPlayer.play("RESET")
 
 
 func _on_fly_timer_timeout():
