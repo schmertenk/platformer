@@ -27,7 +27,7 @@ func drag():
 		control_platform.queue_free()
 		control_platform = null
 
-	visible = true
+	$Sprite2D.visible = true
 	is_dragging = true
 	
 func drop():
@@ -35,9 +35,10 @@ func drop():
 	control_platform = platform
 	Global.control_platforms[control_platform.id] = true
 	Global.game.add_child(platform)
+	platform.body.global_position = global_position
 	platform.global_position = global_position
 	is_dragging = false
-	visible = false
+	$Sprite2D.visible = false
 	
 	
 func _on_area_2d_mouse_entered():

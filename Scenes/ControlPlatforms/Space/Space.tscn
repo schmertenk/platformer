@@ -9,14 +9,14 @@
 script = ExtResource("1_4a5iq")
 id = "Space"
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Body" type="RigidBody2D" parent="."]
 mass = 5.0
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
 modulate = Color(0, 0, 0, 1)
 scale = Vector2(5, 1)
 texture = ExtResource("2_40vgy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 scale = Vector2(32, 6.3)
 shape = SubResource("RectangleShape2D_pg3q8")
