@@ -27,10 +27,10 @@ func _physics_process(delta):
 	
 func get_input():
 	move_direction = Vector2.ZERO
-	if Input.is_action_pressed("right") && !Global.controlPlatforms.D:
+	if Input.is_action_pressed("right") && !Global.control_platforms.D:
 		move_direction += Vector2.RIGHT
 		
-	if Input.is_action_pressed("left") && !Global.controlPlatforms.A:
+	if Input.is_action_pressed("left") && !Global.control_platforms.A:
 		move_direction += Vector2.LEFT
 	
 	if Input.is_action_pressed("jump"):

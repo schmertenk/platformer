@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfvnqs7uplx7m"]
+[gd_scene load_steps=8 format=3 uid="uid://dfvnqs7uplx7m"]
 
 [ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="1_r2aue"]
+[ext_resource type="Script" path="res://Game.gd" id="1_ydx6q"]
 [ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="2_yuqv5"]
 [ext_resource type="PackedScene" uid="uid://bgxroynjropfx" path="res://Scenes/Environment/MovingPlatforms/MovingPlatform.tscn" id="3_rebl1"]
+[ext_resource type="PackedScene" uid="uid://3e78tviysom6" path="res://Scenes/ControlPlatformWrapper/ControlPlatformWrapper.tscn" id="4_teebg"]
+[ext_resource type="PackedScene" uid="uid://br14s13n7nm0a" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.tscn" id="5_kwkx3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hg30"]
-size = Vector2(1189, 20)
+size = Vector2(956.5, 20)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ydx6q")
 
 [node name="Player" parent="." instance=ExtResource("1_r2aue")]
 position = Vector2(341, 116)
@@ -15,13 +19,20 @@ position = Vector2(341, 116)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(570, 612)
+position = Vector2(453.75, 612)
 shape = SubResource("RectangleShape2D_0hg30")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(570, 611.5)
-scale = Vector2(9.26563, 0.148437)
+position = Vector2(457, 611.5)
+scale = Vector2(7.5, 0.148437)
 texture = ExtResource("2_yuqv5")
 
 [node name="MovingPlatform" parent="." instance=ExtResource("3_rebl1")]
-position = Vector2(753, 543)
+position = Vector2(1017, 607)
+
+[node name="ControlPlatformWrapper" parent="." instance=ExtResource("4_teebg")]
+position = Vector2(162, 299)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" parent="CanvasLayer" instance=ExtResource("5_kwkx3")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ip8y4ebno5u"]
+
+[ext_resource type="PackedScene" uid="uid://dfvnqs7uplx7m" path="res://Game.tscn" id="1_buvx3"]
+
+[node name="GameView" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/HBoxContainer/SubViewportContainer"]
+
+[node name="Game" parent="CanvasLayer/HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_buvx3")]

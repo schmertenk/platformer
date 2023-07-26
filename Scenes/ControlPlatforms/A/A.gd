@@ -1,4 +1,4 @@
-extends Node2D
+extends ControlPlatform
 
 @export var speed = 150
 @export var distance = 100
@@ -8,7 +8,7 @@ func _ready():
 	pass
 	
 func _process(delta):
-	if Input.is_action_pressed("left") && Global.controlPlatforms.A:
+	if Input.is_action_pressed("left") && Global.control_platforms.A:
 		if abs($AnimatableBody2D.position.x) > distance:
 			if direction == 1 && $AnimatableBody2D.position.x > distance:
 				direction = -1

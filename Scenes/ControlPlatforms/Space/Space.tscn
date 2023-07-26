@@ -7,6 +7,7 @@
 
 [node name="Space" type="Node2D"]
 script = ExtResource("1_4a5iq")
+id = "Space"
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 mass = 5.0

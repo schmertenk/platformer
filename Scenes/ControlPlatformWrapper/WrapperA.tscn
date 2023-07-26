@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3kyabo8opep1"]
+
+[ext_resource type="PackedScene" uid="uid://3e78tviysom6" path="res://Scenes/ControlPlatformWrapper/ControlPlatformWrapper.tscn" id="1_w0k0m"]
+
+[node name="ControlPlatformWrapper" instance=ExtResource("1_w0k0m")]
+control_platform_path = "res://Scenes/ControlPlatforms/A/A.tscn"
