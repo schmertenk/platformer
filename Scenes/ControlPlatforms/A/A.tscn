@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckk2a2y8kadm1"]
+
+[ext_resource type="Script" path="res://Scenes/ControlPlatforms/A/A.gd" id="1_v1mdy"]
+[ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="2_mpali"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdnme"]
+size = Vector2(127, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqk8q"]
+size = Vector2(129.25, 129)
+
+[node name="A" type="Node2D"]
+script = ExtResource("1_v1mdy")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+modulate = Color(1, 0, 1, 1)
+texture = ExtResource("2_mpali")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_xdnme")
+
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
+shape = SubResource("RectangleShape2D_hqk8q")
+
+[connection signal="body_entered" from="AnimatableBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
