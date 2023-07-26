@@ -19,3 +19,5 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body is StaticBody2D || body is AnimatableBody2D:
 		direction *= -1
+	if body is RigidBody2D && body.freeze:
+		direction *= -1

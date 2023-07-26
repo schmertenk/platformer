@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://du8eylddi3p1r"]
+
+[ext_resource type="Script" path="res://Scenes/ControlPlatforms/Space/Space.gd" id="1_4a5iq"]
+[ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="2_40vgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg3q8"]
+
+[node name="Space" type="Node2D"]
+script = ExtResource("1_4a5iq")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("2_40vgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(32, 6.3)
+shape = SubResource("RectangleShape2D_pg3q8")
