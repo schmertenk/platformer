@@ -18,6 +18,12 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body is StaticBody2D || body is AnimatableBody2D:
-		direction *= -1
+		if body.global_position.x - $AnimatableBody2D.global_position.x < 0 && direction < 0:
+			direction = 1
+		if body.global_position.x - $AnimatableBody2D.global_position.x > 0 && direction > 0:
+			direction = -1
 	if body is RigidBody2D && body.freeze:
-		direction *= -1
+		if body.global_position.x - $AnimatableBody2D.global_position.x < 0 && direction < 0:
+			direction = 1
+		if body.global_position.x - $AnimatableBody2D.global_position.x > 0 && direction > 0:
+			direction = -1

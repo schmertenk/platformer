@@ -11,7 +11,7 @@ size = Vector2(129.25, 129)
 
 [node name="D" type="Node2D"]
 script = ExtResource("1_n6snq")
-id = "A"
+id = "D"
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 
