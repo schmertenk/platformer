@@ -9,6 +9,6 @@ class_name ControlPlatform
 var wrapper:ControlPlatformWrapper
 
 func _physics_process(delta):
-	if wrapper:
+	if is_instance_valid(wrapper):
 		wrapper.global_position = body.global_position
 		wrapper.global_rotation = body.global_rotation

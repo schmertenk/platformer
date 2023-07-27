@@ -9,8 +9,15 @@ var control_platform:Node2D = null
 var is_dragging = false
 var mouse_in
 var mouse_offset = Vector2.ZERO
+var platform_id
 
 
+func _ready():
+	if control_platform_path:
+		var platform = load(control_platform_path).instantiate()
+		platform_id = platform.id
+	
+	
 func _process(delta):
 	if mouse_in and Input.is_action_just_pressed("click"):
 		drag()
@@ -42,11 +49,18 @@ func drop():
 	platform.global_position = global_position
 	is_dragging = false
 	$Sprite2D.visible = false
-	
-	
+
+
 func _on_area_2d_mouse_entered():
 	mouse_in = true
 
 
 func _on_area_2d_mouse_exited():
 	mouse_in = false
+
+
+func _on_tree_exiting():
+	Global.control_platforms[control_platform.id] = false
+	if control_platform:
+		control_platform.queue_free()
+		control_platform = null
