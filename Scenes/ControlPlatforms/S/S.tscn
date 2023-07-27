@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d08nfxj8cbfy3"]
+
+[ext_resource type="Script" path="res://Scenes/ControlPlatforms/S/S.gd" id="1_e7o7x"]
+[ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="2_nahmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4emf"]
+size = Vector2(127, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5egyb"]
+size = Vector2(154.227, 146.906)
+
+[node name="S" type="Node2D"]
+script = ExtResource("1_e7o7x")
+
+[node name="Body" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+modulate = Color(0.694118, 0.631373, 0, 1)
+texture = ExtResource("2_nahmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+shape = SubResource("RectangleShape2D_o4emf")
+
+[node name="Area2D" type="Area2D" parent="Body"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Area2D"]
+shape = SubResource("RectangleShape2D_5egyb")
