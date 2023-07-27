@@ -41,4 +41,5 @@ position = Vector2(162, 299)
 [node name="Flower" parent="." instance=ExtResource("7_0vjoe")]
 position = Vector2(554, 550)
 
-[connection signal="bloomed" from="Flower" to="." method="_on_flower_bloomed"]
+[node name="Flower2" parent="." instance=ExtResource("7_0vjoe")]
+position = Vector2(141, 531)
