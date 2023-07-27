@@ -3,9 +3,6 @@ extends ControlPlatform
 @export var speed = 150
 @export var distance = 100
 var direction = 1
-
-func _ready():
-	pass
 	
 func _process(delta):
 	if Input.is_action_pressed("left") && Global.control_platforms.A:
