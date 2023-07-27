@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name ControlPlatformWrapper
+
 
 @export var control_platform_path = ""
 
@@ -33,6 +35,7 @@ func drag():
 func drop():
 	var platform = load(control_platform_path).instantiate()
 	control_platform = platform
+	platform.wrapper = self
 	Global.control_platforms[control_platform.id] = true
 	Global.game.add_child(platform)
 	platform.body.global_position = global_position
