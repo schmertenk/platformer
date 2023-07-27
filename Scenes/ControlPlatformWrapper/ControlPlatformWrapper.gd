@@ -60,7 +60,7 @@ func _on_area_2d_mouse_exited():
 
 
 func _on_tree_exiting():
-	Global.control_platforms[control_platform.id] = false
 	if control_platform:
+		Global.control_platforms[control_platform.id] = false
 		control_platform.queue_free()
 		control_platform = null

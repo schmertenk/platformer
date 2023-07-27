@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbdtk4qy13p2c"]
+
+[ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="1_ek6ec"]
+[ext_resource type="Script" path="res://Scenes/Honey/Honey.gd" id="1_omnia"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyiw7"]
+size = Vector2(62, 38)
+
+[node name="Honey" type="PinJoint2D"]
+bias = 0.9
+script = ExtResource("1_omnia")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.5, 0.3)
+texture = ExtResource("1_ek6ec")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_tyiw7")

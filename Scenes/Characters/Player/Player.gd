@@ -63,7 +63,14 @@ func get_input():
 		if Time.get_ticks_msec() - jump_pressed_at <= jump_buffer_time:
 			jump()
 		jump_pressed_at = 0
-
+		
+	if Input.is_action_just_pressed("right_click"):
+		var p = preload("res://Scenes/Projectiles/Projectile.tscn").instantiate()
+		var direction = (get_global_mouse_position() - global_position).normalized()
+		p.global_position = global_position + direction * 100
+		Global.game.add_child(p)
+		p.apply_force(direction * 17000)
+		
 
 	look_direction = global_position.direction_to(get_global_mouse_position())
 	apply_force(move_direction.normalized() * speed)

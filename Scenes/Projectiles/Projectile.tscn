@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvj86ctsbnvuw"]
+
+[ext_resource type="Script" path="res://Scenes/Projectiles/Projectile.gd" id="1_25ipn"]
+[ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="2_d58ia"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3elxw"]
+radius = 32.0156
+
+[node name="Projectile" type="RigidBody2D"]
+mass = 0.3
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_25ipn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3elxw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_d58ia")
