@@ -86,6 +86,9 @@ func get_input():
 
 func on_projectile_hit(honey):
 	active_honey = honey
+	active_honey.tree_exiting.connect(func(): 
+		active_honey = null
+	)
 	
 	
 func jump():
