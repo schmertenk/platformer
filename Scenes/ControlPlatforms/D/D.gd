@@ -1,26 +1,10 @@
 extends ControlPlatform
 
-@export var speed = 150
-@export var distance = 100
-var direction = 1
-	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("right") && Global.control_platforms.D:
-		if abs(body.position.y) > distance:
-			if direction == 1 && body.position.y > distance:
-				direction = -1
-			if direction == -1 && body.position.y < -distance:
-				direction = 1
-		body.position += delta * speed * direction * Vector2(0, 1)
-
-func _on_area_2d_body_entered(other_body):
-	if other_body is StaticBody2D || other_body is AnimatableBody2D:
-		if other_body.global_position.y - body.global_position.y < 0 && direction < 0:
-			direction = 1
-		if other_body.global_position.y - body.global_position.y > 0 && direction > 0:
-			direction = -1
-	if other_body is RigidBody2D && other_body.freeze:
-		if other_body.global_position.y - body.global_position.y < 0 && direction < 0:
-			direction = 1
-		if other_body.global_position.y - body.global_position.y > 0 && direction > 0:
-			direction = -1
+	if Global.control_platforms.D && Input.is_action_just_pressed("right"):
+		for body in $Body/Area2D.get_overlapping_bodies():
+			if body is Player:
+				body.apply_force(Vector2.UP * 800)
+			if body is RigidBody2D:
+				body.apply_force(Vector2.UP * 80000)

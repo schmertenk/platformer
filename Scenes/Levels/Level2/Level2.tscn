@@ -1,0 +1,121 @@
+[gd_scene load_steps=15 format=3 uid="uid://rue3la1k8t8t"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_nrmrf"]
+[ext_resource type="Texture2D" uid="uid://dj4cln2o8htjf" path="res://test.png" id="2_aggo3"]
+[ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="4_vvse6"]
+[ext_resource type="PackedScene" uid="uid://br14s13n7nm0a" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.tscn" id="6_sants"]
+[ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="7_750ux"]
+[ext_resource type="PackedScene" uid="uid://dw58eomkudeul" path="res://Scenes/Flower/Flower.tscn" id="7_qfsux"]
+[ext_resource type="PackedScene" uid="uid://daw5daruc5v65" path="res://Scenes/Environment/Deathzone/DeathZone.tscn" id="8_43xpm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s48lo"]
+size = Vector2(283.857, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dndy3"]
+size = Vector2(895, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2l7q"]
+size = Vector2(3810, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_da415"]
+size = Vector2(114.784, 12.9821)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8sn5"]
+size = Vector2(180, 15.0001)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovnbn"]
+radius = 29.0909
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwpnl"]
+size = Vector2(83, 83)
+
+[node name="Level2" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_nrmrf")
+available_control_platforms = {
+"A": true,
+"D": false,
+"S": false,
+"Space": true
+}
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.364706, 0.364706, 0.364706, 1)
+position = Vector2(589, 323.5)
+scale = Vector2(1.31111, 1.075)
+texture = ExtResource("2_aggo3")
+
+[node name="Player" parent="." instance=ExtResource("4_vvse6")]
+position = Vector2(66, 583)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(395.924, 565.389)
+rotation = -0.450451
+shape = SubResource("RectangleShape2D_s48lo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(453.5, 624)
+shape = SubResource("RectangleShape2D_dndy3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" parent="CanvasLayer" instance=ExtResource("6_sants")]
+
+[node name="Flowers" type="Node2D" parent="."]
+
+[node name="Flower" parent="Flowers" instance=ExtResource("7_qfsux")]
+position = Vector2(489, 576)
+rotation = -0.250207
+scale = Vector2(-1, 1)
+
+[node name="Flower2" parent="Flowers" instance=ExtResource("7_qfsux")]
+position = Vector2(30, 205)
+
+[node name="Flower3" parent="Flowers" instance=ExtResource("7_qfsux")]
+position = Vector2(186, 587)
+
+[node name="DeathZone" parent="." instance=ExtResource("8_43xpm")]
+position = Vector2(168, 727)
+
+[node name="CollisionShape2D" parent="DeathZone" index="0"]
+position = Vector2(477, -27.5)
+shape = SubResource("RectangleShape2D_l2l7q")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(713, 555)
+rotation = -0.49636
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2(-114.822, -18.9708)
+rotation = 0.502334
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_da415")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource("RectangleShape2D_t8sn5")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
+scale = Vector2(1.4375, 0.125)
+texture = ExtResource("7_750ux")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(720, 593)
+scale = Vector2(0.687499, 0.671875)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_ovnbn")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(590, 542)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_kwpnl")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.687499, 0.671875)
+texture = ExtResource("7_750ux")
+
+[editable path="DeathZone"]

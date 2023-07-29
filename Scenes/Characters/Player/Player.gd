@@ -17,18 +17,21 @@ var jump_pressed_at = 0
 var fly_state = FLY_STATE.CAN_FLY
 var active_honey:Honey = null
 
+
 func _physics_process(delta):
+	if my_is_on_floor() and fly_state != FLY_STATE.CAN_FLY:
+			fly_state = FLY_STATE.CAN_FLY
+			gravity_scale = 3.0
+			$FlyTimer.paused = false
+		
 	get_input()
 	apply_force(Vector2.DOWN * gravity * gravity_scale)
 	apply_force(Vector2(velocity.x * -friction, 0))
 	move()
 	handle_animation()
-	
-	if fly_state != FLY_STATE.CAN_FLY and is_on_floor():
-		fly_state = FLY_STATE.CAN_FLY
-		gravity_scale = 3.0
-		$FlyTimer.paused = false
-	
+
+		
+		
 func get_input():
 	move_direction = Vector2.ZERO
 	if Input.is_action_pressed("right") && (!Global.control_platforms.D or test_mode):
@@ -58,7 +61,7 @@ func get_input():
 				fly_state = FLY_STATE.CANT_FLY
 
 	if Input.is_action_just_pressed("jump") && (!Global.control_platforms.Space or test_mode):
-		if is_on_floor():
+		if my_is_on_floor():
 			jump()
 		else:
 			jump_pressed_at = Time.get_ticks_msec()
@@ -105,7 +108,7 @@ func jump():
 
 func handle_animation():
 	$Sprite2D.flip_h = velocity.x < 0
-	if abs(velocity.x) > 50 and is_on_floor():
+	if abs(velocity.x) > 50 and my_is_on_floor():
 		$Sprite2D.rotate(sign(velocity.x) * (PI / 20))
 	
 	if fly_state == FLY_STATE.IN_FLIGHT:
@@ -118,3 +121,6 @@ func _on_fly_timer_timeout():
 	if fly_state == FLY_STATE.IN_FLIGHT:
 		fly_state = FLY_STATE.CANT_FLY
 		gravity_scale = 3.0
+		
+func my_is_on_floor():
+	return is_on_floor() or $RayCast2D.is_colliding()

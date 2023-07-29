@@ -12,7 +12,7 @@ size = Vector2(57, 54)
 [node name="S" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_e7o7x")
-id = "S"
+id = "D"
 
 [node name="Body" type="AnimatableBody2D" parent="."]
 

@@ -39,7 +39,7 @@ func _process(delta):
 			can_drop = false
 			
 	if !can_drop:
-		$Sprite2D.modulate = Color.ROSY_BROWN
+		$Sprite2D.modulate = Color.RED
 	else:
 		$Sprite2D.modulate = Color.WHITE
 		
