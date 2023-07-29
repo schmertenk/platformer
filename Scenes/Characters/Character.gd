@@ -6,7 +6,7 @@ signal died
 signal health_updated
 
 @export var speed = 175
-@export var jump_force = 800
+@export var jump_force = 520
 @export var max_health = 2.0
 @export var gravity_scale = 1.0
 
