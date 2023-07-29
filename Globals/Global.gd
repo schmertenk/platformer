@@ -1,5 +1,5 @@
 extends Node
 
 const gravity = 9.8
-var control_platforms = { 'W': false, 'A': true, 'S': false, 'D': false, 'Space': true, 'Shift': false}
+var control_platforms = { 'W': false, 'A': false, 'S': false, 'D': false, 'Space': false, 'Shift': false}
 var game:Game
