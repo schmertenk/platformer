@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://cp4kr5jy4346b"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_t3130"]
+[ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="2_u21ff"]
+[ext_resource type="Texture2D" uid="uid://b2ue6laibxw6i" path="res://Images/Ambient/trees.png" id="3_1fu3n"]
+[ext_resource type="PackedScene" uid="uid://br14s13n7nm0a" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.tscn" id="4_08h88"]
+[ext_resource type="PackedScene" uid="uid://dw58eomkudeul" path="res://Scenes/Flower/Flower.tscn" id="5_nje3h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_654ko"]
+size = Vector2(232, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8re78"]
+size = Vector2(677.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7togv"]
+size = Vector2(444.5, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quyb2"]
+size = Vector2(30.5, 276)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svhkr"]
+size = Vector2(30.5, 89.5)
+
+[node name="Game" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_t3130")
+
+[node name="Player" parent="." instance=ExtResource("2_u21ff")]
+position = Vector2(35, 618)
+test_mode = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Trees" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(585, 322)
+scale = Vector2(2, 2)
+texture = ExtResource("3_1fu3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(120, 657)
+shape = SubResource("RectangleShape2D_654ko")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(585, 322)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(266, -161.4, 270, -152.4, 270, -126.6, 268.7, -123.3, 273, -109.3, 273, -103.8, 270.4, -90, 278, -61.3, 278, -53, 278.9, -15, 279.6, -15, 285, 8.8, 285, 75, 286, 75, 286, 100, 286.6, 100, 288, 105.7, 288, 162, -52.5, 162.5, -44.6, 155, -24.5, 144, 5.70001, 131, 22, 125.6, 28.5, 122.5, 61, 121, 98, 120.1, 98, 119.2, 114, 117.2, 126, 111.7, 137, 100.2, 137, 97.6, 175, 14.6, 175, -26.7, 162.7, -56, 162.1, -56, 146.1, -75, 144.5, -75, 104.5, -96, 101.6, -96, 82.7, -104, 78.8, -104, 51.6, -110, 34.2, -110, 23, -109.1, 23, -108.4, 1, -103.4, -29.9, -83.7, -32, -84.8, -32, -94, -29.8, -94, -22.7, -101.1, -40, -105.4, -40, -106.9, -45, -109.9, -45, -112.8, -41.8, -116, -37.8, -116, -17, -112.4, -8, -114.6, 1.39999, -121, 5.89999, -121, 27.2, -126.9, -22.4, -144, -28, -144, -64, -143, -64, -145.2, -66.4, -147.5, -65.3, -150, -63.8, -150, -60.8, -153, -56.2, -153, -42.4, -154.5, -47, -156.8, -47, -161.2, -45.4, -162, -35.8, -162, -18.7, -157, -16.9, -157, 25, -151.8, 25, -150.4, 56.4, -139, 64.1, -139, 87, -135.7, 87, -134.5, 134, -122.6, 134, -121.4, 161.8, -110.7, 168, -117.7, 168, -123, 169, -158, 170.6, -158, 171.9, -162, 266, -162)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(820.25, 658)
+shape = SubResource("RectangleShape2D_8re78")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(225.75, 565)
+shape = SubResource("RectangleShape2D_7togv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(796, 264)
+shape = SubResource("RectangleShape2D_quyb2")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(431, 507.75)
+shape = SubResource("RectangleShape2D_svhkr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" parent="CanvasLayer" instance=ExtResource("4_08h88")]
+
+[node name="Flowers" type="Node2D" parent="."]
+
+[node name="Flower" parent="Flowers" instance=ExtResource("5_nje3h")]
+position = Vector2(905, 349)
+
+[node name="Flower2" parent="Flowers" instance=ExtResource("5_nje3h")]
+position = Vector2(30, 205)
+
+[node name="Flower3" parent="Flowers" instance=ExtResource("5_nje3h")]
+position = Vector2(177, 611)

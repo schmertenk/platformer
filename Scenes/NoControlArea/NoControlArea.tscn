@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://btdqm75w7g6px"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulb1r"]
+size = Vector2(174, 198)
 
 [node name="NoControlArea" type="Area2D"]
 
