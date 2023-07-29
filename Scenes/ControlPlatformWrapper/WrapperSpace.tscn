@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bghb8kp4mr28a"]
+
+[ext_resource type="PackedScene" uid="uid://3e78tviysom6" path="res://Scenes/ControlPlatformWrapper/ControlPlatformWrapper.tscn" id="1_c5vwm"]
+[ext_resource type="Texture2D" uid="uid://bkfke6ps4in6m" path="res://Images/ControlPlatforms/Space.png" id="2_u6lrx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is07n"]
+size = Vector2(239, 38)
+
+[node name="ControlPlatformWrapper" instance=ExtResource("1_c5vwm")]
+control_platform_path = "res://Scenes/ControlPlatforms/A/A.tscn"
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_is07n")
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_u6lrx")

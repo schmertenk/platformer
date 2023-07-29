@@ -12,22 +12,24 @@ script = ExtResource("1_nctgu")
 wrapper_path = "res://Scenes/ControlPlatformWrapper/ControlPlatformWrapper.tscn"
 
 [node name="Button" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 75)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 flat = true
 
 [node name="TextureRect" type="TextureRect" parent="Button"]
-layout_mode = 2
-offset_left = -14.0
-offset_top = -26.0
-offset_right = 114.0
-offset_bottom = 102.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_kwl81")
+expand_mode = 1
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(50, 54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(51.375, 49)
 shape = SubResource("RectangleShape2D_f7c1n")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

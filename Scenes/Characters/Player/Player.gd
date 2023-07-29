@@ -26,6 +26,7 @@ func _physics_process(delta):
 	
 	if fly_state != FLY_STATE.CAN_FLY and is_on_floor():
 		fly_state = FLY_STATE.CAN_FLY
+		gravity_scale = 3.0
 		$FlyTimer.paused = false
 	
 func get_input():

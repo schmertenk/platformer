@@ -2,12 +2,14 @@ extends CenterContainer
 
 
 @export var wrapper_path = ""
+@export var texture:Texture
+
 var enabled = true
 var platform_id
 var hovered_wrapper:ControlPlatformWrapper = null
 
 func _ready():
-	pass
+	$Button/TextureRect.texture = texture
 	
 func enable():
 	enabled = true
