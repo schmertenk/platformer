@@ -40,6 +40,7 @@ func take_damage(amount, _dealer):
 	if health <= 0:
 		die()
 
+
 func die():
 	if !dead:
 		dead = true
