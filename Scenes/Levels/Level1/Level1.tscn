@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cp4kr5jy4346b"]
+[gd_scene load_steps=10 format=3 uid="uid://cp4kr5jy4346b"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_t3130"]
 [ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="2_u21ff"]
@@ -7,27 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://dw58eomkudeul" path="res://Scenes/Flower/Flower.tscn" id="5_nje3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_654ko"]
-size = Vector2(232, 20)
+size = Vector2(222, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8re78"]
 size = Vector2(677.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7togv"]
-size = Vector2(444.5, 23)
+size = Vector2(447.25, 54.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quyb2"]
 size = Vector2(30.5, 276)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_svhkr"]
-size = Vector2(30.5, 89.5)
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_t3130")
 
 [node name="Player" parent="." instance=ExtResource("2_u21ff")]
-position = Vector2(35, 618)
-test_mode = true
+position = Vector2(42, 582)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -37,7 +33,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_1fu3n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(120, 657)
+position = Vector2(112, 637)
 shape = SubResource("RectangleShape2D_654ko")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -50,16 +46,12 @@ position = Vector2(820.25, 658)
 shape = SubResource("RectangleShape2D_8re78")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(225.75, 565)
+position = Vector2(223.625, 506.25)
 shape = SubResource("RectangleShape2D_7togv")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(796, 264)
 shape = SubResource("RectangleShape2D_quyb2")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(431, 507.75)
-shape = SubResource("RectangleShape2D_svhkr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -74,4 +66,4 @@ position = Vector2(905, 349)
 position = Vector2(30, 205)
 
 [node name="Flower3" parent="Flowers" instance=ExtResource("5_nje3h")]
-position = Vector2(177, 611)
+position = Vector2(158, 596)
