@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckk2a2y8kadm1"]
 
 [ext_resource type="Script" path="res://Scenes/ControlPlatforms/A/A.gd" id="1_v1mdy"]
-[ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="2_mpali"]
+[ext_resource type="Texture2D" uid="uid://dsxijsn5sxtx8" path="res://Images/ControlPlatforms/left.png" id="2_hsxv5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdnme"]
 size = Vector2(50, 50)
@@ -10,16 +10,16 @@ size = Vector2(50, 50)
 size = Vector2(50, 50)
 
 [node name="A" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_v1mdy")
 id = "A"
 
 [node name="Body" type="AnimatableBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Body"]
-modulate = Color(1, 0, 1, 1)
 position = Vector2(0, 3.57628e-07)
-scale = Vector2(0.390625, 0.390625)
-texture = ExtResource("2_mpali")
+scale = Vector2(2, 2)
+texture = ExtResource("2_hsxv5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 shape = SubResource("RectangleShape2D_xdnme")
