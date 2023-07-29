@@ -53,8 +53,8 @@ func drop():
 		platform.wrapper = self
 		Global.control_platforms[control_platform.id] = true
 		Global.game.add_child(platform)
-		platform.body.global_position = global_position
 		platform.global_position = global_position
+		platform.body.global_position = global_position
 		is_dragging = false
 		$Sprite2D.visible = false
 	else: 
