@@ -11,6 +11,8 @@ var mouse_in
 var mouse_offset = Vector2.ZERO
 var platform_id
 
+var can_drop = true
+
 
 func _ready():
 	if control_platform_path:
@@ -28,6 +30,20 @@ func _process(delta):
 	if is_dragging:
 		global_position = get_global_mouse_position() + mouse_offset
 
+	can_drop = true
+	for area in $Area2D.get_overlapping_areas():
+		if area and !area.is_in_group("passing_wrappers"):
+			can_drop = false
+	for body in $Area2D.get_overlapping_bodies():
+		if body and !body.is_in_group("passing_wrappers"):
+			can_drop = false
+			
+	if !can_drop:
+		$Sprite2D.modulate = Color.ROSY_BROWN
+	else:
+		$Sprite2D.modulate = Color.WHITE
+		
+
 
 func drag():
 	if control_platform:
@@ -40,13 +56,6 @@ func drag():
 	is_dragging = true
 	
 func drop():
-	var can_drop = true
-	for area in $Area2D.get_overlapping_areas():
-		if area:
-			can_drop = false
-	for body in $Area2D.get_overlapping_bodies():
-		if body:
-			can_drop = false
 	if can_drop:
 		var platform = load(control_platform_path).instantiate()
 		control_platform = platform
@@ -55,6 +64,8 @@ func drop():
 		Global.game.add_child(platform)
 		platform.global_position = global_position
 		platform.body.global_position = global_position
+		if platform.body is RigidBody2D:
+			platform.body.global_rotation = global_rotation
 		is_dragging = false
 		$Sprite2D.visible = false
 	else: 
