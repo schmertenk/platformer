@@ -1,6 +1,5 @@
 extends PinJoint2D
 
-
 class_name Honey
 
 func _on_area_2d_body_entered(body):

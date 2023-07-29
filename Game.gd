@@ -2,12 +2,15 @@ extends Node2D
 
 class_name Game
 
+@export var available_control_platforms = {"A": true, "S": true, "D": true, "Space": true}
+
 var nr_of_blooming_flowers = 0
 var nr_of_flowers = 0
 
+
 func _ready():
 	find_nr_of_flowers(self)
-	print(nr_of_flowers)
+	$Player.died.connect(_on_player_died)
 	
 
 func _init():
@@ -31,3 +34,11 @@ func add_one_bloom():
 	nr_of_blooming_flowers += 1
 	if nr_of_blooming_flowers == nr_of_flowers:
 		win()
+		
+		
+func _on_player_died(player):
+	lose()
+	
+	
+func lose():
+	Global.main.change_scene(scene_file_path)

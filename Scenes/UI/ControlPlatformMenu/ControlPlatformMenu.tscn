@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://br14s13n7nm0a"]
+[gd_scene load_steps=7 format=3 uid="uid://br14s13n7nm0a"]
 
 [ext_resource type="PackedScene" uid="uid://c4iqievkpicj4" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformSlot.tscn" id="1_82cuk"]
+[ext_resource type="Script" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.gd" id="1_khog6"]
 [ext_resource type="Texture2D" uid="uid://dsxijsn5sxtx8" path="res://Images/ControlPlatforms/left.png" id="2_ymh02"]
 [ext_resource type="Texture2D" uid="uid://cs6nq4trgc3xn" path="res://Images/ControlPlatforms/right.png" id="3_v2tgn"]
 [ext_resource type="Texture2D" uid="uid://b16gsjxi7haf8" path="res://Images/ControlPlatforms/down.png" id="4_arp4y"]
@@ -16,23 +17,24 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 70
+script = ExtResource("1_khog6")
 
-[node name="SlotA" parent="." instance=ExtResource("1_82cuk")]
+[node name="A" parent="." instance=ExtResource("1_82cuk")]
 layout_mode = 2
 wrapper_path = "res://Scenes/ControlPlatformWrapper/WrapperA.tscn"
 texture = ExtResource("2_ymh02")
 
-[node name="SlotD" parent="." instance=ExtResource("1_82cuk")]
+[node name="D" parent="." instance=ExtResource("1_82cuk")]
 layout_mode = 2
 wrapper_path = "res://Scenes/ControlPlatformWrapper/WrapperD.tscn"
 texture = ExtResource("3_v2tgn")
 
-[node name="SlotS" parent="." instance=ExtResource("1_82cuk")]
+[node name="S" parent="." instance=ExtResource("1_82cuk")]
 layout_mode = 2
 wrapper_path = "res://Scenes/ControlPlatformWrapper/WrapperS.tscn"
 texture = ExtResource("4_arp4y")
 
-[node name="SlotSpace" parent="." instance=ExtResource("1_82cuk")]
+[node name="Space" parent="." instance=ExtResource("1_82cuk")]
 layout_mode = 2
 wrapper_path = "res://Scenes/ControlPlatformWrapper/WrapperSpace.tscn"
 texture = ExtResource("5_4hfg4")

@@ -4,7 +4,8 @@ extends ControlPlatform
 func _process(delta):
 	if Global.control_platforms.S && Input.is_action_just_pressed("down"):
 		for body in $Body/Area2D.get_overlapping_bodies():
-			if body is CharacterBody2D:
-				body.apply_force(Vector2(0, -800))
+			var vec = global_position.direction_to(body.global_position)
+			if body is Player:
+				body.apply_force(vec * 800 * Vector2(5,1))
 			if body is RigidBody2D:
-				body.apply_force(Vector2(0, -80000))
+				body.apply_force(vec * 80000)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp4kr5jy4346b"]
+[gd_scene load_steps=13 format=3 uid="uid://cp4kr5jy4346b"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_t3130"]
 [ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="2_u21ff"]
+[ext_resource type="Texture2D" uid="uid://dj4cln2o8htjf" path="res://test.png" id="2_uim2k"]
 [ext_resource type="Texture2D" uid="uid://b2ue6laibxw6i" path="res://Images/Ambient/trees.png" id="3_1fu3n"]
 [ext_resource type="PackedScene" uid="uid://br14s13n7nm0a" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.tscn" id="4_08h88"]
 [ext_resource type="PackedScene" uid="uid://dw58eomkudeul" path="res://Scenes/Flower/Flower.tscn" id="5_nje3h"]
+[ext_resource type="PackedScene" uid="uid://daw5daruc5v65" path="res://Scenes/Environment/Deathzone/DeathZone.tscn" id="7_j8tgo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_654ko"]
 size = Vector2(222, 20)
@@ -18,9 +20,24 @@ size = Vector2(447.25, 54.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quyb2"]
 size = Vector2(30.5, 276)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2l7q"]
+size = Vector2(402, 75)
+
 [node name="Game" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_t3130")
+available_control_platforms = {
+"A": false,
+"D": false,
+"S": true,
+"Space": false
+}
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.364706, 0.364706, 0.364706, 1)
+position = Vector2(589, 323.5)
+scale = Vector2(1.31111, 1.075)
+texture = ExtResource("2_uim2k")
 
 [node name="Player" parent="." instance=ExtResource("2_u21ff")]
 position = Vector2(42, 582)
@@ -67,3 +84,12 @@ position = Vector2(30, 205)
 
 [node name="Flower3" parent="Flowers" instance=ExtResource("5_nje3h")]
 position = Vector2(158, 596)
+
+[node name="DeathZone" parent="." instance=ExtResource("7_j8tgo")]
+position = Vector2(168, 727)
+
+[node name="CollisionShape2D" parent="DeathZone" index="0"]
+position = Vector2(191, -27.5)
+shape = SubResource("RectangleShape2D_l2l7q")
+
+[editable path="DeathZone"]

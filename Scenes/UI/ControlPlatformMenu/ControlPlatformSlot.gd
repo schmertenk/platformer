@@ -7,9 +7,11 @@ extends CenterContainer
 var enabled = true
 var platform_id
 var hovered_wrapper:ControlPlatformWrapper = null
+var current_wrapper
 
 func _ready():
 	$Button/TextureRect.texture = texture
+	
 	
 func enable():
 	enabled = true
@@ -29,19 +31,20 @@ func return_wrapper(wrapper):
 
 func _on_button_button_down():
 	if !enabled:
-		return
+		return_wrapper(current_wrapper)
 	disable()
 	var wrapper = load(wrapper_path).instantiate()
 	Global.game.add_child(wrapper)
 	wrapper.global_position = get_global_mouse_position()
 	wrapper.return_wrapper.connect(return_wrapper)
 	wrapper.drag()
+	current_wrapper = wrapper
 
 
 func _on_area_2d_area_entered(area):
 	var wrapper = area.get_parent()
 	if wrapper is ControlPlatformWrapper:
-		if wrapper.scene_file_path == wrapper_path:
+		if wrapper == current_wrapper:
 			hovered_wrapper = wrapper
 
 

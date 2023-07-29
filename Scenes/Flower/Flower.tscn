@@ -1,21 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://dw58eomkudeul"]
 
 [ext_resource type="Script" path="res://Scenes/Flower/Flower.gd" id="1_ttydy"]
-[ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="2_e67g3"]
+[ext_resource type="Texture2D" uid="uid://cmttqtk6fenkv" path="res://Images/Flowe/flower.png" id="2_nxn1b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2c3sg"]
 radius = 25.0
 height = 75.0
 
 [node name="Flower" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_ttydy")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-modulate = Color(0, 1, 0, 1)
-scale = Vector2(0.4, 0.570313)
-texture = ExtResource("2_e67g3")
+scale = Vector2(2, 2)
+texture = ExtResource("2_nxn1b")
+hframes = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_2c3sg")
