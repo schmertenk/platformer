@@ -6,12 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4emf"]
 size = Vector2(50, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5egyb"]
-size = Vector2(50, 50)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s8bb"]
+size = Vector2(57, 54)
 
 [node name="S" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_e7o7x")
+id = "S"
 
 [node name="Body" type="AnimatableBody2D" parent="."]
 
@@ -26,4 +27,5 @@ shape = SubResource("RectangleShape2D_o4emf")
 [node name="Area2D" type="Area2D" parent="Body"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Area2D"]
-shape = SubResource("RectangleShape2D_5egyb")
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_0s8bb")

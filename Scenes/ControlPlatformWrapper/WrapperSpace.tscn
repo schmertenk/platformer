@@ -7,7 +7,7 @@
 size = Vector2(239, 38)
 
 [node name="ControlPlatformWrapper" instance=ExtResource("1_c5vwm")]
-control_platform_path = "res://Scenes/ControlPlatforms/A/A.tscn"
+control_platform_path = "res://Scenes/ControlPlatforms/Space/Space.tscn"
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(0.5, 0)

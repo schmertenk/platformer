@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cs6nq4trgc3xn" path="res://Images/ControlPlatforms/right.png" id="2_a6kfq"]
 
 [node name="ControlPlatformWrapper" instance=ExtResource("1_y0ueo")]
-control_platform_path = "res://Scenes/ControlPlatforms/A/A.tscn"
+control_platform_path = "res://Scenes/ControlPlatforms/D/D.tscn"
 
 [node name="Sprite2D" parent="." index="1"]
 scale = Vector2(2, 2)

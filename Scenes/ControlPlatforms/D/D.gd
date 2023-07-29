@@ -19,7 +19,7 @@ func _on_area_2d_body_entered(other_body):
 			direction = 1
 		if other_body.global_position.y - body.global_position.y > 0 && direction > 0:
 			direction = -1
-	if other_body is RigidBody2D && body.freeze:
+	if other_body is RigidBody2D && other_body.freeze:
 		if other_body.global_position.y - body.global_position.y < 0 && direction < 0:
 			direction = 1
 		if other_body.global_position.y - body.global_position.y > 0 && direction > 0:
