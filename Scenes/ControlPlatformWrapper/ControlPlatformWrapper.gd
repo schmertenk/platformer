@@ -2,7 +2,7 @@ extends Node2D
 
 class_name ControlPlatformWrapper
 
-
+signal return_wrapper(wrapper)
 @export var control_platform_path = ""
 
 var control_platform:Node2D = null
@@ -40,15 +40,25 @@ func drag():
 	is_dragging = true
 	
 func drop():
-	var platform = load(control_platform_path).instantiate()
-	control_platform = platform
-	platform.wrapper = self
-	Global.control_platforms[control_platform.id] = true
-	Global.game.add_child(platform)
-	platform.body.global_position = global_position
-	platform.global_position = global_position
-	is_dragging = false
-	$Sprite2D.visible = false
+	var can_drop = true
+	for area in $Area2D.get_overlapping_areas():
+		if area:
+			can_drop = false
+	for body in $Area2D.get_overlapping_bodies():
+		if body:
+			can_drop = false
+	if can_drop:
+		var platform = load(control_platform_path).instantiate()
+		control_platform = platform
+		platform.wrapper = self
+		Global.control_platforms[control_platform.id] = true
+		Global.game.add_child(platform)
+		platform.body.global_position = global_position
+		platform.global_position = global_position
+		is_dragging = false
+		$Sprite2D.visible = false
+	else: 
+		return_wrapper.emit(self)
 
 
 func _on_area_2d_mouse_entered():
