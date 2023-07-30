@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://btdqm75w7g6px"]
+[gd_scene load_steps=3 format=3 uid="uid://btdqm75w7g6px"]
+
+[ext_resource type="Script" path="res://Scenes/NoControlArea/NoControlArea.gd" id="1_8clab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulb1r"]
-size = Vector2(174, 198)
+size = Vector2(118.656, 162.75)
 
 [node name="NoControlArea" type="Area2D"]
+script = ExtResource("1_8clab")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ulb1r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(1, 0, 0, 0.2)
