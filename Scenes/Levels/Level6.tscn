@@ -1,0 +1,172 @@
+[gd_scene load_steps=23 format=3 uid="uid://bxxvchulnxuox"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_o8v0e"]
+[ext_resource type="Texture2D" uid="uid://dj4cln2o8htjf" path="res://test.png" id="2_e1s2d"]
+[ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="3_jq727"]
+[ext_resource type="PackedScene" uid="uid://br14s13n7nm0a" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.tscn" id="4_cqjay"]
+[ext_resource type="PackedScene" uid="uid://dw58eomkudeul" path="res://Scenes/Flower/Flower.tscn" id="5_4slor"]
+[ext_resource type="PackedScene" uid="uid://daw5daruc5v65" path="res://Scenes/Environment/Deathzone/DeathZone.tscn" id="6_8v7iq"]
+[ext_resource type="PackedScene" uid="uid://btdqm75w7g6px" path="res://Scenes/NoControlArea/NoControlArea.tscn" id="7_ucii5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dndy3"]
+size = Vector2(191.25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsgec"]
+size = Vector2(189, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_on1cg"]
+size = Vector2(49.5, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j4ju"]
+size = Vector2(221.25, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3emy"]
+size = Vector2(413, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l15m"]
+size = Vector2(47, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_th2w0"]
+size = Vector2(81, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvj3f"]
+size = Vector2(142.5, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7davq"]
+size = Vector2(23, 430.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vy7p"]
+size = Vector2(45.5, 43.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pot1"]
+size = Vector2(63, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfrmx"]
+size = Vector2(37, 334.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x2y1"]
+size = Vector2(40, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2l7q"]
+size = Vector2(3810, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lo0b"]
+size = Vector2(79, 268.957)
+
+[node name="Level" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_o8v0e")
+available_control_platforms = {
+"A": true,
+"D": true,
+"S": false,
+"Space": true
+}
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.364706, 0.364706, 0.364706, 1)
+position = Vector2(589, 323.5)
+scale = Vector2(1.31111, 1.075)
+texture = ExtResource("2_e1s2d")
+
+[node name="Player" parent="." instance=ExtResource("3_jq727")]
+position = Vector2(194, 553)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(181.375, 518)
+shape = SubResource("RectangleShape2D_dndy3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(182, 589)
+shape = SubResource("RectangleShape2D_gsgec")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(261, 553)
+shape = SubResource("RectangleShape2D_on1cg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(275, 458)
+shape = SubResource("RectangleShape2D_7j4ju")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(679, 208)
+shape = SubResource("RectangleShape2D_e3emy")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(353, 106)
+shape = SubResource("RectangleShape2D_5l15m")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(424, 644)
+shape = SubResource("RectangleShape2D_th2w0")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(310.75, 386)
+shape = SubResource("RectangleShape2D_tvj3f")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(479.5, 437.25)
+shape = SubResource("RectangleShape2D_7davq")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(584, 333)
+shape = SubResource("RectangleShape2D_1vy7p")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(354, 317)
+shape = SubResource("RectangleShape2D_2pot1")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(364, 489.75)
+shape = SubResource("RectangleShape2D_vfrmx")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(492, 48.5)
+shape = SubResource("RectangleShape2D_5x2y1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" parent="CanvasLayer" instance=ExtResource("4_cqjay")]
+
+[node name="Flowers" type="Node2D" parent="."]
+
+[node name="Flower" parent="Flowers" instance=ExtResource("5_4slor")]
+position = Vector2(807, 171)
+rotation = -0.250207
+scale = Vector2(-1, 1)
+
+[node name="Flower2" parent="Flowers" instance=ExtResource("5_4slor")]
+position = Vector2(576, 277)
+rotation = -0.250207
+scale = Vector2(-1, 1)
+
+[node name="Flower3" parent="Flowers" instance=ExtResource("5_4slor")]
+position = Vector2(194, 411)
+
+[node name="DeathZone" parent="." instance=ExtResource("6_8v7iq")]
+position = Vector2(168, 727)
+
+[node name="CollisionShape2D" parent="DeathZone" index="0"]
+position = Vector2(477, -27.5)
+shape = SubResource("RectangleShape2D_l2l7q")
+
+[node name="NoControlArea" parent="." instance=ExtResource("7_ucii5")]
+position = Vector2(60, 398)
+
+[node name="CollisionShape2D" parent="NoControlArea" index="0"]
+position = Vector2(-25.664, 154.914)
+debug_color = Color(0.921569, 0, 0.690196, 0.419608)
+
+[node name="NoControlArea2" parent="." instance=ExtResource("7_ucii5")]
+position = Vector2(449, 306)
+
+[node name="CollisionShape2D" parent="NoControlArea2" index="0"]
+position = Vector2(-23.5, 105.521)
+shape = SubResource("RectangleShape2D_0lo0b")
+debug_color = Color(0.94902, 0, 0.576471, 0.419608)
+
+[editable path="DeathZone"]
+[editable path="NoControlArea"]
+[editable path="NoControlArea2"]
