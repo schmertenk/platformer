@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://s8gnxvgda8pm"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/MainMenu/MainMenu.gd" id="1_qorip"]
-[ext_resource type="Texture2D" uid="uid://b2ue6laibxw6i" path="res://Images/Ambient/trees.png" id="2_55faq"]
+[ext_resource type="PackedScene" uid="uid://lr4gjjgv8lb4" path="res://Scenes/Menus/background.tscn" id="2_a8qw0"]
 [ext_resource type="FontFile" uid="uid://dlwgioj2a4605" path="res://Borel-Regular.ttf" id="3_k4niv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0rph"]
@@ -19,21 +19,7 @@ corner_radius_bottom_left = 6
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_qorip")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_55faq")
+[node name="Background" parent="." instance=ExtResource("2_a8qw0")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 69.0

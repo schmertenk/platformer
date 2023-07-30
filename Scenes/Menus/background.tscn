@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=3 uid="uid://lr4gjjgv8lb4"]
+
+[ext_resource type="Shader" path="res://Scenes/Levels/Level1/Level1.gdshader" id="1_6datq"]
+[ext_resource type="Texture2D" uid="uid://b2ue6laibxw6i" path="res://Images/Ambient/trees.png" id="2_p0ffi"]
+[ext_resource type="Texture2D" uid="uid://cmttqtk6fenkv" path="res://Images/Flowe/flower.png" id="3_p74wa"]
+
+[sub_resource type="Gradient" id="Gradient_vqsh1"]
+offsets = PackedFloat32Array(0, 0.445148, 1)
+colors = PackedColorArray(0.125, 0.15625, 0.140625, 1, 0.335938, 0.386719, 0.238281, 1, 0.799023, 0.572979, 0.341613, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lb48p"]
+gradient = SubResource("Gradient_vqsh1")
+width = 120
+fill_from = Vector2(1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjmgg"]
+atlas = ExtResource("3_p74wa")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f7pdw"]
+shader = ExtResource("1_6datq")
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.448
+shader_parameter/cutoff = 0.14
+shader_parameter/falloff = 0.438
+shader_parameter/edge_fade = 0.223
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.9, 0.65, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="Curve" id="Curve_w8r30"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.501031, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k837m"]
+curve = SubResource("Curve_w8r30")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e05id"]
+emission_shape = 3
+emission_box_extents = Vector3(500, 500, 1)
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 15.75
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.0
+scale_max = 12.81
+scale_curve = SubResource("CurveTexture_k837m")
+color = Color(1, 1, 0.670588, 1)
+
+[node name="Background" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gradient" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_lb48p")
+
+[node name="Tree" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p0ffi")
+stretch_mode = 6
+
+[node name="Flower" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 484.0
+offset_right = 680.0
+offset_bottom = 532.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_cjmgg")
+stretch_mode = 5
+
+[node name="Rays" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_f7pdw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(542, 353)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_e05id")
+lifetime = 5.0

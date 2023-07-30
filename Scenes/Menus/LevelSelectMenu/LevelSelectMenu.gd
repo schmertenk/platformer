@@ -12,4 +12,16 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	Global.main.change_scene("res://Scenes/Menus/LevelSelectMenu/LevelSelectMenu.tscn")
+	Global.main.change_scene("res://Scenes/Levels/Level1/Level1.tscn")
+
+
+func _on_button_2_pressed():
+	pass # Replace with function body.
+
+
+func _on_button_3_pressed():
+	pass # Replace with function body.
+
+
+func _on_button_4_pressed():
+	pass # Replace with function body.

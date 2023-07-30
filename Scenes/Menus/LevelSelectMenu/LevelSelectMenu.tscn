@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0rxyxnxgnldm"]
+
+[ext_resource type="PackedScene" uid="uid://lr4gjjgv8lb4" path="res://Scenes/Menus/background.tscn" id="1_tc8ue"]
+[ext_resource type="Script" path="res://Scenes/Menus/LevelSelectMenu/LevelSelectMenu.gd" id="1_wavn8"]
+[ext_resource type="FontFile" uid="uid://dlwgioj2a4605" path="res://Borel-Regular.ttf" id="2_5vqbf"]
+[ext_resource type="PackedScene" uid="uid://djenuqyjoqry8" path="res://Scenes/Menus/button.tscn" id="3_tawrx"]
+
+[node name="LevelSelectMenu" type="CanvasLayer"]
+script = ExtResource("1_wavn8")
+
+[node name="Background" parent="." instance=ExtResource("1_tc8ue")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 60.0
+offset_right = 455.0
+offset_bottom = 589.0
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.858824, 0.745098, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_5vqbf")
+theme_override_font_sizes/font_size = 50
+text = "select a level"
+horizontal_alignment = 1
+
+[node name="Button" parent="Background/VBoxContainer" instance=ExtResource("3_tawrx")]
+layout_mode = 2
+text = "level 1"
+
+[node name="Button2" parent="Background/VBoxContainer" instance=ExtResource("3_tawrx")]
+layout_mode = 2
+text = "level 2"
+
+[node name="Button3" parent="Background/VBoxContainer" instance=ExtResource("3_tawrx")]
+layout_mode = 2
+text = "level 3"
+
+[node name="Button4" parent="Background/VBoxContainer" instance=ExtResource("3_tawrx")]
+layout_mode = 2
+text = "level 4"
+
+[connection signal="pressed" from="Background/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]

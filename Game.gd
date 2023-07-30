@@ -20,15 +20,13 @@ func _init():
 func _process(delta):
 	pass
 
-func win():
-	get_tree().quit()
-
 func find_nr_of_flowers(node: Node) -> void:
 	if node is Flower:
 		nr_of_flowers += 1
 		node.bloomed.connect(add_one_bloom)
 	for child in node.get_children():
 		find_nr_of_flowers(child)
+
 
 func add_one_bloom():
 	nr_of_blooming_flowers += 1
@@ -38,6 +36,10 @@ func add_one_bloom():
 		
 func _on_player_died(player):
 	lose()
+	
+
+func win():
+	Global.main.change_scene("res://Scenes/Menus/LevelSelectMenu/LevelSelectMenu.tscn")
 	
 	
 func lose():
