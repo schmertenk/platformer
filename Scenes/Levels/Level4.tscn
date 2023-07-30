@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs7kmtk5wnqil"]
+[gd_scene load_steps=11 format=3 uid="uid://bs7kmtk5wnqil"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_k4kf5"]
 [ext_resource type="Texture2D" uid="uid://dj4cln2o8htjf" path="res://test.png" id="2_4i1sw"]
@@ -9,6 +9,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dndy3"]
 size = Vector2(895, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hoh7i"]
+size = Vector2(191.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fwfc"]
+size = Vector2(342.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2l7q"]
 size = Vector2(3810, 75)
@@ -38,6 +44,14 @@ position = Vector2(66, 583)
 position = Vector2(453.5, 624)
 shape = SubResource("RectangleShape2D_dndy3")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(100.25, 170)
+shape = SubResource("RectangleShape2D_hoh7i")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(717.75, 342)
+shape = SubResource("RectangleShape2D_7fwfc")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" parent="CanvasLayer" instance=ExtResource("4_2x6l2")]
@@ -45,15 +59,12 @@ shape = SubResource("RectangleShape2D_dndy3")
 [node name="Flowers" type="Node2D" parent="."]
 
 [node name="Flower" parent="Flowers" instance=ExtResource("5_uhq66")]
-position = Vector2(438, 575)
+position = Vector2(711, 292)
 rotation = -0.250207
 scale = Vector2(-1, 1)
 
 [node name="Flower2" parent="Flowers" instance=ExtResource("5_uhq66")]
-position = Vector2(308, 573)
-
-[node name="Flower3" parent="Flowers" instance=ExtResource("5_uhq66")]
-position = Vector2(186, 587)
+position = Vector2(56, 119)
 
 [node name="DeathZone" parent="." instance=ExtResource("6_78fih")]
 position = Vector2(168, 727)
