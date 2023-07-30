@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformSlot.gd" id="1_nctgu"]
 [ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="2_kwl81"]
-[ext_resource type="Texture2D" uid="uid://cs6nq4trgc3xn" path="res://Images/ControlPlatforms/right.png" id="2_em273"]
 [ext_resource type="Shader" path="res://Scenes/UI/ControlPlatformMenu/test.gdshader" id="3_ebwco"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4egpn"]
 shader = ExtResource("3_ebwco")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7c1n"]
-size = Vector2(209.25, 224)
+size = Vector2(97, 100)
 
 [node name="Slot" type="CenterContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 100)
 script = ExtResource("1_nctgu")
 wrapper_path = "res://Scenes/ControlPlatformWrapper/ControlPlatformWrapper.tscn"
@@ -37,6 +37,7 @@ material = SubResource("ShaderMaterial_4egpn")
 position = Vector2(50, 54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_f7c1n")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
