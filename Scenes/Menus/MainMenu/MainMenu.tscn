@@ -3,18 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Menus/MainMenu/MainMenu.gd" id="1_qorip"]
 [ext_resource type="PackedScene" uid="uid://lr4gjjgv8lb4" path="res://Scenes/Menus/background.tscn" id="2_a8qw0"]
 [ext_resource type="FontFile" uid="uid://dlwgioj2a4605" path="res://Borel-Regular.ttf" id="3_k4niv"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0rph"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
+[ext_resource type="PackedScene" uid="uid://djenuqyjoqry8" path="res://Scenes/Menus/button.tscn" id="4_ibkwj"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_qorip")
@@ -26,6 +15,7 @@ offset_left = 69.0
 offset_top = 60.0
 offset_right = 455.0
 offset_bottom = 589.0
+theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -37,43 +27,16 @@ theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("3_k4niv")
 theme_override_font_sizes/font_size = 50
-text = "game name"
+text = "humbleKEY"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 70)
+[node name="Button" parent="VBoxContainer" instance=ExtResource("4_ibkwj")]
 layout_mode = 2
-flat = true
-
-[node name="Panel" type="Panel" parent="VBoxContainer/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_r0rph")
-
-[node name="Label" type="Label" parent="VBoxContainer/Button/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -2.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.858824, 0.745098, 0, 1)
-theme_override_constants/shadow_offset_x = 6
-theme_override_constants/shadow_offset_y = 4
-theme_override_constants/outline_size = 5
-theme_override_constants/shadow_outline_size = 0
-theme_override_fonts/font = ExtResource("3_k4niv")
-theme_override_font_sizes/font_size = 35
 text = "start game"
-horizontal_alignment = 1
-vertical_alignment = 2
+
+[node name="Button2" parent="VBoxContainer" instance=ExtResource("4_ibkwj")]
+layout_mode = 2
+text = "tutorial"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

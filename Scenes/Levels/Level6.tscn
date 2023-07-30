@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bxxvchulnxuox"]
+[gd_scene load_steps=24 format=3 uid="uid://etrbj3tfoqrk"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_o8v0e"]
 [ext_resource type="Texture2D" uid="uid://dj4cln2o8htjf" path="res://test.png" id="2_e1s2d"]
@@ -50,10 +50,13 @@ size = Vector2(40, 127)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2l7q"]
 size = Vector2(3810, 75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw7e2"]
+size = Vector2(85, 86)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lo0b"]
 size = Vector2(79, 268.957)
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_o8v0e")
 available_control_platforms = {
@@ -156,7 +159,8 @@ shape = SubResource("RectangleShape2D_l2l7q")
 position = Vector2(60, 398)
 
 [node name="CollisionShape2D" parent="NoControlArea" index="0"]
-position = Vector2(-25.664, 154.914)
+position = Vector2(-18.5, 154)
+shape = SubResource("RectangleShape2D_kw7e2")
 debug_color = Color(0.921569, 0, 0.690196, 0.419608)
 
 [node name="NoControlArea2" parent="." instance=ExtResource("7_ucii5")]

@@ -48,10 +48,10 @@ size = Vector2(3810, 75)
 texture_filter = 1
 script = ExtResource("1_t3130")
 available_control_platforms = {
-"A": false,
+"A": true,
 "D": true,
 "S": false,
-"Space": false
+"Space": true
 }
 
 [node name="Background" type="Sprite2D" parent="."]

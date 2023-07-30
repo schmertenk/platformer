@@ -13,3 +13,7 @@ func _process(delta):
 
 func _on_button_pressed():
 	Global.main.change_scene("res://Scenes/Menus/LevelSelectMenu/LevelSelectMenu.tscn")
+
+
+func _on_button_2_pressed():	
+	Global.main.change_scene("res://Scenes/Levels/Tutorial/TutorialLevel1.tscn")

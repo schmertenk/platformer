@@ -8,3 +8,4 @@ func _process(delta):
 				body.apply_force(Vector2.UP * 800)
 			if body is RigidBody2D:
 				body.apply_force(Vector2.UP * 80000)
+		$AnimationPlayer.play("activate")

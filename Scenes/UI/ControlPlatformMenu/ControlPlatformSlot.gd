@@ -34,11 +34,6 @@ func _process(delta):
 		$Button/TextureRect.scale = Vector2(1, 1)
 
 func return_wrapper(wrapper: ControlPlatformWrapper):
-	if wrapper.is_dragging:
-		var t = create_tween()
-		t.set_trans(Tween.TRANS_EXPO)
-		t.tween_property(wrapper, "global_position", global_position + size / 2, 0.5)
-		await t.finished
 	wrapper.queue_free()
 	enable()
 

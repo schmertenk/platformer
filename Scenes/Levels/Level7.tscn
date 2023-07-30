@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bytk8ra5yf7eq"]
+[gd_scene load_steps=11 format=3 uid="uid://bq66lrk4uo6ll"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_p38aa"]
 [ext_resource type="Texture2D" uid="uid://dj4cln2o8htjf" path="res://test.png" id="2_u01om"]
@@ -17,7 +17,7 @@ size = Vector2(330, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2l7q"]
 size = Vector2(3810, 75)
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_p38aa")
 available_control_platforms = {

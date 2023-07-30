@@ -16,12 +16,12 @@ func _on_button_pressed():
 
 
 func _on_button_2_pressed():
-	pass # Replace with function body.
+	Global.main.change_scene("res://Scenes/Levels/Level2/Level2.tscn")
 
 
 func _on_button_3_pressed():
-	pass # Replace with function body.
+	Global.main.change_scene("res://Scenes/Levels/Level3.tscn")
 
 
 func _on_button_4_pressed():
-	pass # Replace with function body.
+	Global.main.change_scene("res://Scenes/Levels/Level4.tscn")

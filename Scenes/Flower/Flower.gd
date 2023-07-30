@@ -18,6 +18,7 @@ func _on_area_2d_body_entered(body):
 		bloom()
 
 func bloom():
-	$Area2D/Sprite2D.frame = 0
-	blooming = true
-	bloomed.emit()
+	if visible:
+		$Area2D/Sprite2D.frame = 0
+		blooming = true
+		bloomed.emit()

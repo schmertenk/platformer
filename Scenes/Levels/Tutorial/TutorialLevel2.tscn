@@ -1,0 +1,515 @@
+[gd_scene load_steps=24 format=3 uid="uid://cwj533yc5qxfc"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_xw8pb"]
+[ext_resource type="Texture2D" uid="uid://dj4cln2o8htjf" path="res://test.png" id="2_13slk"]
+[ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="3_vrcxt"]
+[ext_resource type="Texture2D" uid="uid://cb38ckjixa4wh" path="res://Images/Ambient/tarrain_tutorial_2.png" id="4_54el6"]
+[ext_resource type="PackedScene" uid="uid://br14s13n7nm0a" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.tscn" id="4_w8w13"]
+[ext_resource type="PackedScene" uid="uid://dw58eomkudeul" path="res://Scenes/Flower/Flower.tscn" id="5_eq2if"]
+[ext_resource type="Shader" path="res://Scenes/Levels/Level1/Level1.gdshader" id="6_4voql"]
+[ext_resource type="PackedScene" uid="uid://daw5daruc5v65" path="res://Scenes/Environment/Deathzone/DeathZone.tscn" id="6_8wb32"]
+[ext_resource type="Script" path="res://Scenes/Levels/Tutorial/Tutorial2.gd" id="7_qae3e"]
+[ext_resource type="Shader" path="res://Scenes/Levels/Tutorial/Spotlight.gdshader" id="8_q2yij"]
+[ext_resource type="FontFile" uid="uid://dlwgioj2a4605" path="res://Borel-Regular.ttf" id="9_c3sok"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_86rif"]
+polygon = PackedVector2Array(286.5, -159.6, 286.5, 159.7, -286.5, 159.7, -286.5, 148.4, -280.4, 142.3, -277.5, 142.3, 47.5, 146.3, 50.7, 130.3, 52.4, 130.3, 59.4, 121.3, 92.6, 121.3, 110.3, 122.2, 110.3, 121.5, 145.3, 117.5, 164.3, 107.1, 164.3, 106, 207.3, 14, 207.3, -27.1, 194.1, -58.3, 193.5, -58.3, 179.5, -75.3, 177.8, -75.3, 169.7, -81.3, 167, -81.3, 114, -105.3, 110.3, -105.3, 83, -111.3, 65.9, -111.3, 32.7, -104.7, 5.60001, -86.9, 3.29999, -88.2, 3.29999, -89.5, 0.899994, -92, 2, -94.7, 3.5, -94.7, 11.3, -102.5, 3.29999, -106.1, 3.29999, -109.4, 6.60001, -112.7, 11.7, -112.7, 14.8, -112.1, 33, -120.7, 37.2, -120.7, 59.9, -127.5, 9.10001, -145.3, -17.7, -145.3, -17.7, -154.7, -8.79999, -154.7, -9.70001, -155.3, -9.70001, -158.9, -7.70001, -159.9, -7.70001, -160.5, 1.89999, -160.5, 56.7, -151.4, 56.7, -150.1, 88, -138.7, 95.7, -138.7, 118.7, -135.4, 118.7, -134.2, 168.7, -121.2, 168.7, -119.9, 191, -109.7, 193.4, -109.7, 200.3, -118.3, 200.3, -123.5, 201.3, -158.7, 203.4, -158.7, 204.5, -160.5, 285.6, -160.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pyvlj"]
+polygon = PackedVector2Array(-18.9, -149, -20, -146.3, -28.7, -146.3, -28.7, -150.9, -26.7, -151.9, -26.7, -153, -24, -154.1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qanhc"]
+polygon = PackedVector2Array(7.10001, -109.7, 6.20001, -106.3, -7.70001, -106.3, -7.70001, -117.1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_irses"]
+polygon = PackedVector2Array(-224.9, 94.7, -225.9, 97.7, -227.7, 97.7, -230.1, 99.7, -222.3, 100.5, -222.3, 109.7, -247.3, 109.7, -335.5, 137, -285.7, 117.9, -286.5, 113, -286.5, 103.3, -285, 103.3, -233.7, 91.7, -233.7, 91.1, -231.3, 89.9)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vnndc"]
+shader = ExtResource("6_4voql")
+shader_parameter/angle = -0.6
+shader_parameter/position = -0.8
+shader_parameter/spread = 1.0
+shader_parameter/cutoff = -0.642
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.901961, 0.65098, 0.541176)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2l7q"]
+size = Vector2(3810, 75)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yi0bh"]
+shader = ExtResource("8_q2yij")
+shader_parameter/circle_size = 0.125
+shader_parameter/screen_width = 1152.0
+shader_parameter/screen_height = 648.0
+shader_parameter/circle_position = Vector2(-0.25, 0.9)
+shader_parameter/normal_alpha = 0.528
+
+[sub_resource type="Animation" id="Animation_b1r68"]
+resource_name = "1"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spotlight:material:shader_parameter/circle_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(7.46426, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(-0.25, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_xddt8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spotlight:material:shader_parameter/circle_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.25, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_eqrmc"]
+resource_name = "4"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spotlight:material:shader_parameter/circle_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(7.46426, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(-0.31, 0.7)]
+}
+
+[sub_resource type="Animation" id="Animation_8d8wg"]
+resource_name = "8"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spotlight:material:shader_parameter/circle_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(7.46426, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.95, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2mg1h"]
+_data = {
+"1": SubResource("Animation_b1r68"),
+"4": SubResource("Animation_eqrmc"),
+"8": SubResource("Animation_8d8wg"),
+"RESET": SubResource("Animation_xddt8")
+}
+
+[node name="Tutorial2" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_xw8pb")
+available_control_platforms = {
+"A": true,
+"D": true,
+"S": false,
+"Space": true
+}
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+rotation = -0.874327
+shadow_enabled = true
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.364706, 0.364706, 0.364706, 1)
+position = Vector2(589, 323.5)
+scale = Vector2(1.31111, 1.075)
+texture = ExtResource("2_13slk")
+
+[node name="Player" parent="." instance=ExtResource("3_vrcxt")]
+position = Vector2(66, 583)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(573, 322)
+scale = Vector2(2, 2)
+texture = ExtResource("4_54el6")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
+position = Vector2(573, 322)
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_86rif")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="StaticBody2D"]
+position = Vector2(573, 322)
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_pyvlj")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="StaticBody2D"]
+position = Vector2(573, 322)
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_qanhc")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="StaticBody2D"]
+position = Vector2(578, 296)
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_irses")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(573, 322)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(286.5, -159.6, 286.5, 159.7, -286.5, 159.7, -286.5, 148.4, -280.4, 142.3, -277.5, 142.3, 47.5, 146.3, 50.7, 130.3, 52.4, 130.3, 59.4, 121.3, 92.6, 121.3, 110.3, 122.2, 110.3, 121.5, 145.3, 117.5, 164.3, 107.1, 164.3, 106, 207.3, 14, 207.3, -27.1, 194.1, -58.3, 193.5, -58.3, 179.5, -75.3, 177.8, -75.3, 169.7, -81.3, 167, -81.3, 114, -105.3, 110.3, -105.3, 83, -111.3, 65.9, -111.3, 32.7, -104.7, 5.60001, -86.9, 3.29999, -88.2, 3.29999, -89.5, 0.899994, -92, 2, -94.7, 3.5, -94.7, 11.3, -102.5, 3.29999, -106.1, 3.29999, -109.4, 6.60001, -112.7, 11.7, -112.7, 14.8, -112.1, 33, -120.7, 37.2, -120.7, 59.9, -127.5, 9.10001, -145.3, -17.7, -145.3, -17.7, -154.7, -8.79999, -154.7, -9.70001, -155.3, -9.70001, -158.9, -7.70001, -159.9, -7.70001, -160.5, 1.89999, -160.5, 56.7, -151.4, 56.7, -150.1, 88, -138.7, 95.7, -138.7, 118.7, -135.4, 118.7, -134.2, 168.7, -121.2, 168.7, -119.9, 191, -109.7, 193.4, -109.7, 200.3, -118.3, 200.3, -123.5, 201.3, -158.7, 203.4, -158.7, 204.5, -160.5, 285.6, -160.5)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(573, 322)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-18.9, -149, -20, -146.3, -28.7, -146.3, -28.7, -150.9, -26.7, -151.9, -26.7, -153, -24, -154.1)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(573, 322)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(7.10001, -109.7, 6.20001, -106.3, -7.70001, -106.3, -7.70001, -117.1)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(573, 296)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-224.9, 94.7, -225.9, 97.7, -227.7, 97.7, -230.1, 99.7, -222.3, 100.5, -222.3, 109.7, -247.3, 109.7, -285.7, 121.5, -285.7, 117.9, -286.5, 113, -286.5, 103.3, -285, 103.3, -233.7, 91.7, -233.7, 91.1, -231.3, 89.9)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(569, 293)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-210.9, 106, -212, 108.7, -220.7, 108.7, -220.7, 104.1, -218.7, 103.1, -218.7, 102, -216, 100.9)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_vnndc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" parent="CanvasLayer" instance=ExtResource("4_w8w13")]
+
+[node name="Flowers" type="Node2D" parent="."]
+
+[node name="Flower" parent="Flowers" instance=ExtResource("5_eq2if")]
+position = Vector2(868, 517)
+rotation = -0.250207
+scale = Vector2(-1, 1)
+
+[node name="Flower2" parent="Flowers" instance=ExtResource("5_eq2if")]
+position = Vector2(39, 455)
+
+[node name="Flower3" parent="Flowers" instance=ExtResource("5_eq2if")]
+position = Vector2(302, 578)
+
+[node name="Flower4" parent="Flowers" instance=ExtResource("5_eq2if")]
+visible = false
+position = Vector2(41, 32)
+
+[node name="DeathZone" parent="." instance=ExtResource("6_8wb32")]
+position = Vector2(168, 727)
+
+[node name="CollisionShape2D" parent="DeathZone" index="0"]
+position = Vector2(477, -27.5)
+shape = SubResource("RectangleShape2D_l2l7q")
+
+[node name="Tutorial" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("7_qae3e")
+
+[node name="Spotlight" type="ColorRect" parent="Tutorial"]
+visible = false
+material = SubResource("ShaderMaterial_yi0bh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.423529)
+
+[node name="Control" type="Control" parent="Tutorial"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Texts" type="Control" parent="Tutorial/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="1" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "ok. new level..."
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="2" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "... new flowers to get"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="4" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "mhh. the last one could be tricky"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="5" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "but thats ok."
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="6" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "see. you can't fly very well."
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="7" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "but you've got other strengths."
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="8" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "like using you'r keys for more than moving!"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="9" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "yeah you heard me right."
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="10" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "your keys have multiple applications ;)"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="11" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "just drag them out from the 
+right and try them out!
+>>"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="12" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "they all have different abilities when you 
+press the key on your're keyboard"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="13" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "sadly you can't use the key for 
+moving whuile its out there"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="14" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "when you don't need your key anymore,
+ just drag it back to the right  
+ >>"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="16" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "ok! you're ready for the other levels i guess."
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="17" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "one last tip:"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="18" type="Label" parent="Tutorial/Control/Texts"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_c3sok")
+theme_override_font_sizes/font_size = 50
+text = "the keys can affect each other, 
+so be creative and have fun! :)"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tutorial"]
+libraries = {
+"": SubResource("AnimationLibrary_2mg1h")
+}
+
+[connection signal="bloomed" from="Flowers/Flower" to="Tutorial" method="_on_flower_bloomed"]
+[connection signal="bloomed" from="Flowers/Flower2" to="Tutorial" method="_on_flower_2_bloomed"]
+[connection signal="bloomed" from="Flowers/Flower3" to="Tutorial" method="_on_flower_3_bloomed"]
+[connection signal="bloomed" from="Flowers/Flower4" to="Tutorial" method="_on_flower_3_bloomed"]
+
+[editable path="DeathZone"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://br14s13n7nm0a"]
+[gd_scene load_steps=11 format=3 uid="uid://br14s13n7nm0a"]
 
 [ext_resource type="PackedScene" uid="uid://c4iqievkpicj4" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformSlot.tscn" id="1_82cuk"]
 [ext_resource type="Script" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.gd" id="1_khog6"]
@@ -6,8 +6,33 @@
 [ext_resource type="Texture2D" uid="uid://cs6nq4trgc3xn" path="res://Images/ControlPlatforms/right.png" id="3_v2tgn"]
 [ext_resource type="Texture2D" uid="uid://b16gsjxi7haf8" path="res://Images/ControlPlatforms/down.png" id="4_arp4y"]
 [ext_resource type="Texture2D" uid="uid://bkfke6ps4in6m" path="res://Images/ControlPlatforms/Space.png" id="5_4hfg4"]
+[ext_resource type="FontFile" uid="uid://dlwgioj2a4605" path="res://Borel-Regular.ttf" id="7_88j0h"]
+[ext_resource type="Script" path="res://Scenes/UI/ControlPlatformMenu/PauseMenu.gd" id="7_h75yj"]
+[ext_resource type="PackedScene" uid="uid://djenuqyjoqry8" path="res://Scenes/Menus/button.tscn" id="8_iihug"]
 
-[node name="VBoxContainer" type="VBoxContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmdu7"]
+bg_color = Color(0, 0, 0, 0.466667)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,22 +44,81 @@ grow_vertical = 2
 theme_override_constants/separation = 70
 script = ExtResource("1_khog6")
 
-[node name="A" parent="." instance=ExtResource("1_82cuk")]
+[node name="A" parent="VBoxContainer" instance=ExtResource("1_82cuk")]
 layout_mode = 2
 wrapper_path = "res://Scenes/ControlPlatformWrapper/WrapperA.tscn"
 texture = ExtResource("2_ymh02")
 
-[node name="D" parent="." instance=ExtResource("1_82cuk")]
+[node name="D" parent="VBoxContainer" instance=ExtResource("1_82cuk")]
 layout_mode = 2
 wrapper_path = "res://Scenes/ControlPlatformWrapper/WrapperD.tscn"
 texture = ExtResource("3_v2tgn")
 
-[node name="S" parent="." instance=ExtResource("1_82cuk")]
+[node name="S" parent="VBoxContainer" instance=ExtResource("1_82cuk")]
 layout_mode = 2
 wrapper_path = "res://Scenes/ControlPlatformWrapper/WrapperS.tscn"
 texture = ExtResource("4_arp4y")
 
-[node name="Space" parent="." instance=ExtResource("1_82cuk")]
+[node name="Space" parent="VBoxContainer" instance=ExtResource("1_82cuk")]
 layout_mode = 2
 wrapper_path = "res://Scenes/ControlPlatformWrapper/WrapperSpace.tscn"
 texture = ExtResource("5_4hfg4")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_h75yj")
+
+[node name="Control" type="Control" parent="CenterContainer"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tmdu7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="CenterContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.858824, 0.745098, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_88j0h")
+theme_override_font_sizes/font_size = 50
+text = "pause"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ContinueButton" parent="CenterContainer/Control/VBoxContainer" instance=ExtResource("8_iihug")]
+layout_mode = 2
+text = "continue"
+
+[node name="RestartButton" parent="CenterContainer/Control/VBoxContainer" instance=ExtResource("8_iihug")]
+layout_mode = 2
+text = "restart"
+
+[node name="ExitButton" parent="CenterContainer/Control/VBoxContainer" instance=ExtResource("8_iihug")]
+layout_mode = 2
+text = "exit"

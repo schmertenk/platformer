@@ -1,40 +1,41 @@
-[gd_scene load_steps=15 format=3 uid="uid://rue3la1k8t8t"]
+[gd_scene load_steps=13 format=3 uid="uid://rue3la1k8t8t"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_nrmrf"]
 [ext_resource type="Texture2D" uid="uid://dj4cln2o8htjf" path="res://test.png" id="2_aggo3"]
+[ext_resource type="Texture2D" uid="uid://sk3jksp1af1i" path="res://Images/Ambient/terrain_level_2.png" id="4_r1fwg"]
 [ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="4_vvse6"]
+[ext_resource type="Shader" path="res://Scenes/Levels/Level1/Level1.gdshader" id="5_vwrbx"]
 [ext_resource type="PackedScene" uid="uid://br14s13n7nm0a" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.tscn" id="6_sants"]
-[ext_resource type="Texture2D" uid="uid://cd1xkunslic63" path="res://icon.svg" id="7_750ux"]
 [ext_resource type="PackedScene" uid="uid://dw58eomkudeul" path="res://Scenes/Flower/Flower.tscn" id="7_qfsux"]
 [ext_resource type="PackedScene" uid="uid://daw5daruc5v65" path="res://Scenes/Environment/Deathzone/DeathZone.tscn" id="8_43xpm"]
+[ext_resource type="Texture2D" uid="uid://dqjtnn7s3ad36" path="res://Images/Ambient/stick.png" id="8_rgqlq"]
+[ext_resource type="Texture2D" uid="uid://bkxjlo1y6c8hy" path="res://Images/Ambient/stone.png" id="9_jolk5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s48lo"]
-size = Vector2(283.857, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dndy3"]
-size = Vector2(895, 20)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_25qty"]
+shader = ExtResource("5_vwrbx")
+shader_parameter/angle = -0.6
+shader_parameter/position = -0.8
+shader_parameter/spread = 1.0
+shader_parameter/cutoff = -0.642
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.9, 0.65, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2l7q"]
 size = Vector2(3810, 75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_da415"]
-size = Vector2(114.784, 12.9821)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8sn5"]
-size = Vector2(253.365, 15.0001)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ovnbn"]
-radius = 29.0909
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwpnl"]
-size = Vector2(83, 83)
 
 [node name="Level2" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_nrmrf")
 available_control_platforms = {
 "A": true,
-"D": false,
+"D": true,
 "S": false,
 "Space": true
 }
@@ -50,16 +51,35 @@ position = Vector2(66, 583)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(342, 564)
-rotation = -0.450451
-shape = SubResource("RectangleShape2D_s48lo")
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(576, 325)
+scale = Vector2(2, 2)
+texture = ExtResource("4_r1fwg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(453.5, 624)
-shape = SubResource("RectangleShape2D_dndy3")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(576, 325)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(287.5, -160.6, 287.5, 158.7, 285.7, 158.7, 254.8, 161.5, -288, 161, -287.5, 144.5, -278, 143.5, -233, 146, -170.6, 143.3, -165.5, 107.5, -159.5, 94.5, -150, 84.3, -118.5, 71.5, -102.5, 69.5, -88.5, 69.5, -53.3, 69.4, -49.3, 75.6, -49.3, 82.7, -51.7, 94.7, -54.4, 94.7, -64.7, 95.4, -87.3, 91.2, -114.4, 95.4, -131.3, 116.3, -129.5, 140.3, -126.4, 144.3, -28, 146, 31.9, 144.2, 30.5, 129.3, 37.6, 122.3, 46.4, 122.3, 59.7, 134.5, 59.7, 138.3, 64, 150, 124, 154, 146.5, 155.5, 151.5, 145.5, 156.3, 142.7, 172.3, 133.2, 172.3, 132, 215.3, 40, 215.3, -1.5, 214.4, -18.3, 199.9, -60.3, 199.3, -60.3, 192.2, -71.3, 190.8, -71.3, 175.7, -82.3, 171, -82.3, 119, -106.3, 115.3, -106.3, 88, -112.3, 70.9, -112.3, 37.7, -105.7, 10.6, -87.9, 8.29999, -89.2, 8.29999, -90.5, 5.89999, -93, 7, -95.7, 8.5, -95.7, 16.3, -103.5, 8.29999, -107.1, 8.29999, -110.4, 11.6, -113.7, 16.7, -113.7, 19.8, -113.1, 38, -121.7, 42.2, -121.7, 64.9, -128.5, 14.1, -146.3, -12.7, -146.3, -12.7, -155.7, -3.79999, -155.7, -4.70001, -156.3, -4.70001, -159.9, -2.70001, -160.9, -2.70001, -161.5, 6.89999, -161.5, 61.7, -152.4, 61.7, -151.1, 93, -139.7, 100.7, -139.7, 123.7, -136.4, 123.7, -135.2, 173.7, -122.2, 173.7, -120.9, 196, -110.7, 198.4, -110.7, 205.3, -119.3, 205.3, -124.5, 206.3, -159.7, 208.4, -159.7, 209.5, -161.5, 286.6, -161.5)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(576, 325)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-13.9, -150, -15, -147.3, -23.7, -147.3, -23.7, -151.9, -21.7, -152.9, -21.7, -154, -19, -155.1)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(576, 325)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(12.1, -110.7, 11.2, -107.3, -2.70001, -107.3, -2.70001, -118.1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_25qty")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" parent="CanvasLayer" instance=ExtResource("6_sants")]
 
@@ -69,9 +89,6 @@ shape = SubResource("RectangleShape2D_dndy3")
 position = Vector2(438, 575)
 rotation = -0.250207
 scale = Vector2(-1, 1)
-
-[node name="Flower2" parent="Flowers" instance=ExtResource("7_qfsux")]
-position = Vector2(30, 205)
 
 [node name="Flower3" parent="Flowers" instance=ExtResource("7_qfsux")]
 position = Vector2(186, 587)
@@ -84,41 +101,33 @@ position = Vector2(477, -27.5)
 shape = SubResource("RectangleShape2D_l2l7q")
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="."]
-position = Vector2(652, 562)
-rotation = -0.49636
+position = Vector2(672, 541)
+mass = 0.4
 can_sleep = false
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D2"]
-position = Vector2(-114.822, -18.9708)
-rotation = 0.502334
-shape = SubResource("RectangleShape2D_da415")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
-position = Vector2(36.6825, 0)
-shape = SubResource("RectangleShape2D_t8sn5")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
-position = Vector2(34.9093, 0)
-scale = Vector2(1.98296, 0.125)
-texture = ExtResource("7_750ux")
+position = Vector2(-1, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_rgqlq")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(659, 593)
-scale = Vector2(0.687499, 0.671875)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource("CircleShape2D_ovnbn")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D2"]
+position = Vector2(-1, 1)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(70.5, -32, 38.5, -12, 15.7, 1.1, 5.3, 9.7, 1.1, 9.7, -12.3, 15, -12.3, 15.6, -26.7, 26.7, -30, 26.7, -38.1, 29.7, -81.7, 29.7, -81.7, 27.5, -84.1, 25, -83, 22.3, -81.5, 22.3, -78.4, 19.3, -58.6, 19.3, -43.7, 18.4, 65.6, -36.1)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(528, 549)
-mass = 0.34
+position = Vector2(556, 497)
+mass = 0.15
 can_sleep = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("RectangleShape2D_kwpnl")
-
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-scale = Vector2(0.687499, 0.671875)
-texture = ExtResource("7_750ux")
+position = Vector2(5, 6)
+scale = Vector2(2, 1.956)
+texture = ExtResource("9_jolk5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2(5, 6)
+scale = Vector2(2, 1.956)
+polygon = PackedVector2Array(15.2, -22.6, 15.2, -20.6, 24, -14.8, 24, 12.7, 22.3, 12.7, 17.2, 20.7, 13.2, 20.7, 13.2, 21.7, 0.1, 21.7, -22.2, 22.8, -22.2, 20.7, -24, 19.5, -24, -5.4, -23, -17.7, -21, -17.7, -16.9, -21.7, -12.4, -21.7, -8.2, -22.4, -8.2, -23.5, -2.4, -23.5)
 
 [editable path="DeathZone"]

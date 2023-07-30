@@ -1,20 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://bs7kmtk5wnqil"]
+[gd_scene load_steps=11 format=3 uid="uid://bnt10350bimcn"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_k4kf5"]
 [ext_resource type="Texture2D" uid="uid://dj4cln2o8htjf" path="res://test.png" id="2_4i1sw"]
 [ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="3_6b7xf"]
 [ext_resource type="PackedScene" uid="uid://br14s13n7nm0a" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.tscn" id="4_2x6l2"]
+[ext_resource type="Texture2D" uid="uid://don85q3u4km4n" path="res://Images/Ambient/terrain_level_4.png" id="4_jd3mj"]
 [ext_resource type="PackedScene" uid="uid://dw58eomkudeul" path="res://Scenes/Flower/Flower.tscn" id="5_uhq66"]
 [ext_resource type="PackedScene" uid="uid://daw5daruc5v65" path="res://Scenes/Environment/Deathzone/DeathZone.tscn" id="6_78fih"]
+[ext_resource type="Shader" path="res://Scenes/Levels/Level1/Level1.gdshader" id="6_oi6ri"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dndy3"]
-size = Vector2(895, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hoh7i"]
-size = Vector2(191.5, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fwfc"]
-size = Vector2(342.5, 20)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v68oe"]
+shader = ExtResource("6_oi6ri")
+shader_parameter/angle = -0.6
+shader_parameter/position = -0.8
+shader_parameter/spread = 1.0
+shader_parameter/cutoff = -0.642
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.9, 0.65, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2l7q"]
 size = Vector2(3810, 75)
@@ -40,19 +49,35 @@ position = Vector2(66, 583)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(453.5, 624)
-shape = SubResource("RectangleShape2D_dndy3")
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(575, 325)
+scale = Vector2(2, 2)
+texture = ExtResource("4_jd3mj")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(100.25, 170)
-shape = SubResource("RectangleShape2D_hoh7i")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(575, 325)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(265.2, -160.1, 268.2, -158.2, 268.2, -153, 272.2, -104.8, 269.7, -91.2, 278.2, -54.2, 278.2, -16.2, 278.9, -16.2, 285.2, 23.8, 285.2, 98.8, 288, 107.9, 288, 160.1, 287.1, 161, -287.1, 161, -288, 155.1, -288, 144.8, -286.6, 144.8, -281.6, 141.8, -168.8, 141.8, -168.8, 142.8, -29.2, 144.8, 28.6, 120.8, 61, 120.8, 97.8, 119.9, 97.8, 119, 113.8, 117, 127.8, 110.6, 136.8, 101, 152.8, 64.5, 146.5, 55.2, 103.5, 35.2, 99.9, 35.2, 85.2, 34.3, 85.2, 34.9, 50.2, 40.9, 23.1, 58.6, 20.8, 57.3, 20.8, 56, 18.4, 53.5, 19.5, 50.8, 21, 50.8, 10.5, 35, 8, 31.5, 32, 33.3, 66.9, 21.4, 67.6, 14.8, 26.6, 0.199997, -13.5, 0.5, -12.5, -6, 8.20001, -8.60001, 3.39999, -13.5, 4.5, -16.2, 6.60001, -16.2, 15.2, -16.6, 30.4, -11.2, 32.1, -11.2, 74.2, -6, 74.2, -4.60001, 111.5, 9.8, 116.3, 9.8, 142.2, 16.3, 166.6, 27.1, 175.8, 12.3, 175.8, -31, 170.8, -62.8, 170.8, -79.1, 174.8, -114.3, 174.8, -129.5, 170.8, -146.7, 170.8, -159.4, 172.8, -160.4, 172.8, -161, 265.2, -161)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(717.75, 342)
-shape = SubResource("RectangleShape2D_7fwfc")
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(575, 325)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-212.5, -83.5, -211.3, -77.8, -216.5, -74.8, -196, -70, -195.5, -65.5, -233.8, -64.8, -279.7, -49.8, -286.9, -49.8, -288, -56.9, -288, -67.2, -286.8, -67.2, -281.8, -71.2, -276.3, -71.2, -240.2, -76.9, -240.2, -77.6, -219, -82.5)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(575, 325)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-257.8, -39.8, -257.8, -38.4, -242.5, -31.2, -238.1, -31.2, -219, -33.5, -216, -29.5, -236.9, -21.9, -226.5, -6, -257.6, -23.8, -260.3, -23.8, -287.2, -30.3, -287.2, -45.7)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_v68oe")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" parent="CanvasLayer" instance=ExtResource("4_2x6l2")]
 
