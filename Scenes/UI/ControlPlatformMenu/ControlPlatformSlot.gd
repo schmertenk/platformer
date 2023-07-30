@@ -14,7 +14,8 @@ func _ready():
 	$Button/TextureRect.pivot_offset = $Button/TextureRect.size / 2
 	$Area2D/CollisionShape2D.global_position = $Button/TextureRect.global_position + $Button/TextureRect.size
 	$Area2D/CollisionShape2D.global_position -= Vector2(0, $Button/TextureRect.size.y / 2)
-	
+
+
 func enable():
 	enabled = true
 	modulate = Color.WHITE
