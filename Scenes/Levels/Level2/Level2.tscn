@@ -21,7 +21,7 @@ size = Vector2(3810, 75)
 size = Vector2(114.784, 12.9821)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8sn5"]
-size = Vector2(180, 15.0001)
+size = Vector2(253.365, 15.0001)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ovnbn"]
 radius = 29.0909
@@ -51,7 +51,7 @@ position = Vector2(66, 583)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(395.924, 565.389)
+position = Vector2(342, 564)
 rotation = -0.450451
 shape = SubResource("RectangleShape2D_s48lo")
 
@@ -66,7 +66,7 @@ shape = SubResource("RectangleShape2D_dndy3")
 [node name="Flowers" type="Node2D" parent="."]
 
 [node name="Flower" parent="Flowers" instance=ExtResource("7_qfsux")]
-position = Vector2(489, 576)
+position = Vector2(438, 575)
 rotation = -0.250207
 scale = Vector2(-1, 1)
 
@@ -84,32 +84,35 @@ position = Vector2(477, -27.5)
 shape = SubResource("RectangleShape2D_l2l7q")
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="."]
-position = Vector2(713, 555)
+position = Vector2(652, 562)
 rotation = -0.49636
-scale = Vector2(1, 1)
+can_sleep = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D2"]
 position = Vector2(-114.822, -18.9708)
 rotation = 0.502334
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_da415")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2(36.6825, 0)
 shape = SubResource("RectangleShape2D_t8sn5")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
-scale = Vector2(1.4375, 0.125)
+position = Vector2(34.9093, 0)
+scale = Vector2(1.98296, 0.125)
 texture = ExtResource("7_750ux")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(720, 593)
+position = Vector2(659, 593)
 scale = Vector2(0.687499, 0.671875)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("CircleShape2D_ovnbn")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(590, 542)
+position = Vector2(528, 549)
+mass = 0.34
+can_sleep = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_kwpnl")

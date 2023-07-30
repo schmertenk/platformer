@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp4kr5jy4346b"]
+[gd_scene load_steps=17 format=3 uid="uid://cp4kr5jy4346b"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_t3130"]
 [ext_resource type="PackedScene" uid="uid://gbmqtemmybni" path="res://Scenes/Characters/Player/Player.tscn" id="2_u21ff"]
@@ -7,7 +7,39 @@
 [ext_resource type="PackedScene" uid="uid://br14s13n7nm0a" path="res://Scenes/UI/ControlPlatformMenu/ControlPlatformMenu.tscn" id="4_08h88"]
 [ext_resource type="Texture2D" uid="uid://cedaid05dtlxw" path="res://Images/Ambient/tarrain_level_1.png" id="4_ujq74"]
 [ext_resource type="PackedScene" uid="uid://dw58eomkudeul" path="res://Scenes/Flower/Flower.tscn" id="5_nje3h"]
+[ext_resource type="Shader" path="res://Scenes/Levels/Level1/Level1.gdshader" id="6_bkag2"]
 [ext_resource type="PackedScene" uid="uid://daw5daruc5v65" path="res://Scenes/Environment/Deathzone/DeathZone.tscn" id="7_j8tgo"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_k3xbn"]
+polygon = PackedVector2Array(288.5, -168, 288.5, 166.8, 285.3, 170, 203.5, 170, -34.5, 169, -34.5, 166.8, -36.9, 164.5, -35.8, 162, -34.2, 162, -26.3, 155, -23.8, 155, 33.1, 130, 51.5, 130, 109.5, 127.1, 128.1, 118, 136.3, 118, 171.5, 115.1, 183.5, 108.8, 183.5, 108, 187.4, -2, 184.1, -11, 181.2, -13, 167.5, -13, 147.5, -4.60001, 141.3, 2, 124.4, 2, 108.5, 0.899994, 108.5, -1.60001, 105.8, -14, 105.2, -14, 93.2, -43, 92.6, -43, 77.6, -61, 76, -61, 34, -83, 31.1, -83, 12.2, -91, 8.29999, -91, -18.9, -97, -36.3, -97, -47.5, -96.1, -47.5, -95.4, -69.5, -90.4, -69.5, -89.8, -87.5, -79.6, -87.5, -83.7, -91.5, -93, -88.6, -93, -86.6, -96, -83, -96, -69, -104, -64.6, -104, -37.5, -110.5, -37, -111.3, -44.1, -116, -48.9, -116, -71.9, -125, -78.9, -125, -92.8, -131, -98.7, -131, -106.5, -132.3, -106.5, -134.4, -111.8, -142.9, -110.7, -145, -109.3, -145, -107, -147.4, -104.5, -146.3, -104.5, -145.4, -89.1, -140, -87.4, -140, -45.5, -134.8, -45.5, -133.4, -14.1, -122, -6.39999, -122, 16.5, -118.7, 16.5, -117.5, 63.5, -105.6, 63.5, -104.4, 91.3, -93.6, 99.5, -102.7, 99.5, -108.1, 102.5, -167.1, 102.5, -170)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ngocx"]
+polygon = PackedVector2Array(-217.1, -39.5, -218.2, -37, -219.3, -37, -223.3, -29, -230.2, -29, -280.2, -13, -286.2, -13, -288.5, -25.8, -288.5, -28, -286.3, -28, -282.3, -32, -276.8, -32, -241.5, -36.8, -241.5, -37.5, -224.5, -42.5, -224.5, -43.3, -222, -44.4)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7r3ej"]
+polygon = PackedVector2Array(-258.5, -0.600006, -258.5, 0.699997, -241.5, 7.7, -241.5, 9.2, -238.1, 12.5, -239.2, 15, -240.2, 15, -243.3, 22.3, -246.5, 21.6, -246.5, 20.1, -258, 13, -260.7, 13, -286.5, 6.60001, -286.5, -6.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tfncy"]
+polygon = PackedVector2Array(132.5, 30.5, 132.5, 38.1, 126.2, 80, 124.3, 80, 116.3, 88, 96.7, 88, 83.5, 89.2, 83.5, 86.6, 81.2, 83.1, 82.3, 81, 83.2, 81, 106.2, 29, 108.4, 29, 113.5, 27.5, 113.5, 25.4)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wkdkp"]
+polygon = PackedVector2Array(-64.5, 82, -64.5, 84.6, -62.1, 97, -64.1, 97, -66.1, 103, -69.2, 103, -82.2, 107, -92.8, 107, -113.7, 101, -213.5, 101, -213.5, 101.7, -241.5, 105.8, -277.5, 126.1, -277.5, 127.1, -278.4, 141, -273.1, 154, -272.5, 154, -176.5, 158, -176.5, 160.6, -175.1, 168, -178.5, 168, -286.5, 170, -286.5, 82, -269.5, 82, -197.5, 81, -197.5, 80)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0j472"]
+shader = ExtResource("6_bkag2")
+shader_parameter/angle = -0.6
+shader_parameter/position = -0.8
+shader_parameter/spread = 1.0
+shader_parameter/cutoff = -0.642
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.9, 0.65, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2l7q"]
 size = Vector2(3810, 75)
@@ -88,7 +120,40 @@ position = Vector2(577, 313)
 scale = Vector2(2, 2)
 polygon = PackedVector2Array(-66, 81.5, -62, 85, -63.2, 97, -68, 104, -82.2, 108, -92.8, 108, -113.7, 102, -213.5, 102, -213.5, 102.7, -241.5, 106.8, -276.5, 126.3, -276.5, 127.1, -277.4, 141, -273.1, 153, -272.5, 153, -175.5, 157, -177.5, 169, -232.5, 170, -287.5, 170, -287.5, 81)
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="StaticBody2D"]
+position = Vector2(577, 313)
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_k3xbn")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="StaticBody2D"]
+position = Vector2(577, 313)
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_ngocx")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="StaticBody2D"]
+position = Vector2(577, 313)
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_7r3ej")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="StaticBody2D"]
+position = Vector2(577, 313)
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_tfncy")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="StaticBody2D"]
+position = Vector2(577, 313)
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_wkdkp")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_0j472")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" parent="CanvasLayer" instance=ExtResource("4_08h88")]
 
@@ -111,5 +176,10 @@ position = Vector2(168, 727)
 [node name="CollisionShape2D" parent="DeathZone" index="0"]
 position = Vector2(477, -27.5)
 shape = SubResource("RectangleShape2D_l2l7q")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+rotation = -0.984393
+color = Color(0.368627, 0.364706, 0, 1)
+shadow_enabled = true
 
 [editable path="DeathZone"]
